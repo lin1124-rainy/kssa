@@ -1,0 +1,189 @@
+/* =========================================================
+   頂部導覽列 (Navbar & Main-A)
+   ========================================================= */
+.Main-A {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 64px;
+  padding: 0 24px;
+  background-color: #1e293b;
+  border-bottom: 3px solid #b5a67c;
+  position: relative;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #ffffff; /* 白底襯底 */
+  padding: 2px; /* 襯底寬度 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+.nav-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* 導覽選單列表 */
+.nav-list {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  margin-left: 40px;
+  gap: 8px;
+  list-style: none;
+}
+
+/* 滑動白色膠囊 */
+.nav-active-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 1;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s ease;
+  opacity: 0;
+}
+
+/* 第一層選單連結 */
+.nav-list .nav-item > a {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  padding: 8px 16px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.nav-list .nav-item > a.is-pill-active {
+  color: #0f172a !important;
+}
+
+/* 下拉選單 */
+.nav-item.has-dropdown {
+  position: relative;
+}
+
+.nav-item.has-dropdown:hover .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1e293b;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  padding: 8px 0;
+  border-radius: 8px;
+  min-width: 160px;
+  z-index: 100;
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+/* 漢堡選單按鈕 */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+/* RWD 選單縮放 */
+@media (max-width: 1024px) {
+  .nav-list {
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .nav-title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Main-A {
+    position: relative;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    margin: 0 !important;
+    padding: 20px 0;
+    background-color: #1e293b;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    text-align: center;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .dropdown-menu {
+    position: static !important;
+    box-shadow: none;
+    background-color: #0f172a;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 8px;
+    border-radius: 4px;
+  }
+}

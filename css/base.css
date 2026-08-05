@@ -1,0 +1,589 @@
+/* =========================================================
+   1. 全域初始化 & Reset
+   ========================================================= */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+.Main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* 通用按鈕元件 */
+.btn-secondary {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  padding: 5px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-secondary:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+
+/* =========================================================
+   2. 首頁主要區塊 (Main Page Sections)
+   ========================================================= */
+/* .Main-B {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  padding: 80px 20px;
+  gap: 24px;
+  margin: 0;
+
+}
+
+.Main-B h1,
+.Main-B h2,
+.Main-B p {
+  margin: 0;
+  padding: 0;
+} */
+.Main-B {
+  position: relative; /* 💡 必須有 relative，內部的浮水印才能定位 */
+  text-align: center;
+  padding: 80px 20px;
+  overflow: hidden; /* 避免圖片過大超出區塊 */
+}
+
+/* 💡 利用 ::before 加上背景大會徽 */
+.Main-B::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 水平垂直完全置中 */
+
+  width: 380px; /* 大會徽寬度 */
+  height: 380px;
+
+  /* 💡 關鍵：因為 base.css 在 css/ 資料夾內，要用 ../ 才能抓到根目錄的 images/ */
+  background-image: url("../images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  opacity: 0.15; /* 先調亮到 0.15 方便測試，看得見後可依喜好調淡 (例: 0.08~0.12) */
+  pointer-events: none; /* 滑鼠穿透，不影響選取文字 */
+  z-index: 0;
+}
+
+/* 確保 Main-B 裡面的所有文字與內容浮在水印上面 */
+.Main-B > * {
+  position: relative;
+  z-index: 1;
+}
+
+.Main-C {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  gap: 16px;
+}
+
+.Main-C > h2 {
+  width: 100%;
+  height: 150px;
+  background-color: #b5a67c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Main-C img {
+  max-height: 300px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.dept-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.dept-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dept-title {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.dept-title h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.dept-title span {
+  font-size: 16px;
+  color: #64748b;
+  font-weight: normal;
+}
+
+.dept-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dept-content p {
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* =========================================================
+   3. 行事曆頁面 (Calendar Page)
+   ========================================================= */
+.calendar-page {
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.calendar-container {
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  padding: 36px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.calendar-header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.calendar-header-actions h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.calendar-box {
+  width: 100%;
+  border: none;
+  padding: 0;
+}
+
+.calendar-month-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.calendar-month-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  min-width: 160px;
+  text-align: center;
+}
+
+.arrow-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.arrow-btn:hover {
+  color: #0f172a;
+  background-color: #f1f5f9;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 8px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 4px;
+}
+
+.day-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #334155;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.day-cell:hover:not(.empty-cell) {
+  background-color: #f1f5f9;
+}
+
+.day-cell.today {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.day-cell.selected {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.empty-cell {
+  cursor: default;
+}
+
+.calendar-divider {
+  border: 0;
+  height: 1px;
+  background-color: #f1f5f9;
+  margin: 32px 0 24px 0;
+}
+
+.event-details-section h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.event-list li {
+  font-size: 16px;
+  color: #1e293b;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  line-height: 1.5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.no-event {
+  color: #94a3b8;
+  font-size: 15px;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.btn-delete-event {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-delete-event:hover {
+  color: #ef4444;
+  background-color: #fee2e2;
+}
+
+/* =========================================================
+   4. 意見反映頁面 (Feedback Page)
+   ========================================================= */
+.feedback-page {
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.feedback-container {
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.feedback-header {
+  margin-bottom: 32px;
+}
+
+.feedback-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.feedback-header p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.required {
+  color: #ef4444;
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form select,
+.feedback-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #0f172a;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.feedback-form input:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus {
+  background-color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.btn-submit {
+  background-color: #0284c7;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background-color: #0369a1;
+}
+
+.btn-submit:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.status-msg {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.status-msg.success {
+  color: #16a34a;
+}
+
+.status-msg.error {
+  color: #dc2626;
+}
+
+/* =========================================================
+   5. 全站 Footer (Site Footer)
+   ========================================================= */
+.site-footer {
+  width: 100%;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 13px;
+  padding: 30px 0;
+  margin-top: 60px;
+}
+
+.footer-brand {
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.footer-right {
+  text-align: right;
+  line-height: 1.6;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: 15px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* RWD 通用調整 */
+@media (max-width: 768px) {
+  .Main-B,
+  .Main-C,
+  .dept-container,
+  .site-footer {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .dept-block {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .dept-title {
+    width: 100%;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
