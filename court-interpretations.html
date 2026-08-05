@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>評議解釋與審理案件公開 - 高雄市立高雄高級中學評議委員會</title>
+    <script
+      src="https://kit.fontawesome.com/552437327d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 💡 檯燈深淺色切換器 -->
+    <div
+      class="lamp-wrapper"
+      id="theme-lamp-btn"
+      title="拉一下切換亮色/暗色模式"
+    >
+      <div class="lamp-wire"></div>
+      <div class="lamp-top"></div>
+      <div class="lamp-shade">
+        <div class="lamp-glow"></div>
+      </div>
+      <!-- 可拉動的燈繩 -->
+      <div class="lamp-cord-wrap">
+        <div class="lamp-cord">
+          <div class="lamp-knob"></div>
+        </div>
+      </div>
+    </div>
+    <div class="Main">
+      <!-- 頂部導覽列 -->
+      <header>
+        <nav class="Main-A">
+          <div class="nav-brand">
+            <img src="./images/logo.png" alt="Logo" class="nav-logo" />
+            <span class="nav-title">高雄中學學聯會</span>
+          </div>
+
+          <button class="hamburger-btn" type="button" aria-label="切換選單">
+            <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
+          </button>
+
+          <ul class="nav-list">
+            <div class="nav-active-pill"></div>
+
+            <li class="nav-item"><a href="index.html">首頁</a></li>
+            <li class="nav-item"><a href="calendar.html">行事曆</a></li>
+            <li class="nav-item"><a href="links.html">相關連結</a></li>
+            <li class="nav-item"><a href="feedback.html">意見反映</a></li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學聯會介紹 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="officers.html">幹部與工作介紹</a></li>
+                <li>
+                  <a href="exec-intro.html">行政中心組織活動總覽</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學生議會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="council-intro.html">學生議會組織運作總覽</a></li>
+                <li><a href="council-rules.html">學生議會議事規範總覽</a></li>
+                <li><a href="council-budget.html">學生會預決算審查總覽</a></li>
+                <li><a href="council-docs.html">學生議會議事公開專區</a></li>
+                <li>
+                  <a href="council-templates.html">學生會選罷與提案指南</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- 💡 當前分頁：評議委員會 ▾ -->
+            <li class="nav-item has-dropdown active">
+              <a href="#">評議委員會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="court-intro.html">評議會與司法救濟總覽</a></li>
+                <li>
+                  <a href="court-interpretations.html">評議會解釋與審理總覽</a>
+                </li>
+                <li><a href="court-docs.html">評議會議事公開專區</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">資訊專區 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="activities.html">活動資訊</a></li>
+                <li><a href="clubs.html">社團介紹</a></li>
+                <li><a href="other-info.html">其他資訊</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- 主要內容區 -->
+      <main class="council-page">
+        <div class="council-container">
+          <!-- 【區塊 1：專欄標題與頁面錨點】 -->
+          <div class="council-header">
+            <h2>評議會解釋與審理總覽</h2>
+            <p class="council-subtitle">
+              解析章程與法規解釋聲請資格、審理程序及決議門檻
+            </p>
+
+            <!-- 快速導覽錨點 -->
+            <div class="page-anchors">
+              <a href="#section-position" class="anchor-pill"
+                ><i class="fa-solid fa-scale-balanced"></i> 機關定位與職權</a
+              >
+              <a href="#section-eligibility" class="anchor-pill"
+                ><i class="fa-solid fa-users"></i> 聲請資格與門檻</a
+              >
+              <a href="#section-requirements" class="anchor-pill"
+                ><i class="fa-solid fa-file-lines"></i> 聲請書必備要件</a
+              >
+              <a href="#section-procedure" class="anchor-pill"
+                ><i class="fa-solid fa-magnifying-glass"></i> 審理調查程序</a
+              >
+              <a href="#section-thresholds" class="anchor-pill"
+                ><i class="fa-solid fa-table-cells"></i> 表決與決議門檻</a
+              >
+              <a href="#section-effect" class="anchor-pill"
+                ><i class="fa-solid fa-bullhorn"></i> 公布與執行效力</a
+              >
+            </div>
+            <hr class="header-divider" />
+          </div>
+
+          <!-- 【區塊 2：機關定位與職權】 -->
+          <section id="section-position" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-scale-balanced"></i>
+              一、 機關定位與核心職權（第 1、2 條）
+            </h3>
+
+            <div class="doc-card">
+              <div class="doc-block">
+                <ul class="doc-list">
+                  <li>
+                    <strong>法源依據：</strong
+                    >依《高雄中學學生聯合自治會組織章程》（下稱《章程》）第 42
+                    條制定。
+                  </li>
+                  <li><strong>機關性質：</strong>採合議制。</li>
+                  <li>
+                    <strong>核心職權：</strong>
+                    <ul>
+                      <li>解釋《章程》。</li>
+                      <li>統一解釋自治條例及自治規則。</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【區塊 3：聲請資格與發起門檻】 -->
+          <section id="section-eligibility" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-users"></i>
+              二、 聲請資格與發起門檻（第 3、4 條）
+            </h3>
+
+            <div class="doc-card">
+              <div class="doc-block">
+                <h4 class="doc-subtitle">
+                  1. 聲請「解釋章程」（程序不合者不予受理）
+                </h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>學聯會機關：</strong
+                    >行使職權適用章程有疑義、機關間職權爭議，或適用之條例/規則有牴觸章程疑義。
+                  </li>
+                  <li>
+                    <strong>會員或政黨：</strong
+                    >權利遭受不法侵害，且已依法提起學生訴訟並取得「確定終局審理」結果，認為適用之條例/規則牴觸章程。
+                  </li>
+                  <li><strong>學生議員：</strong>達現有總額 1/6 以上連署。</li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <div class="doc-block">
+                <h4 class="doc-subtitle">2. 聲請「統一解釋」</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>學聯會機關：</strong
+                    >就職權上適用條例、規則或命令之見解，與本會或他機關已表示之見解有相左時。
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【區塊 4：聲請書必備要件】 -->
+          <section id="section-requirements" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-file-lines"></i>
+              三、 聲請書必備要件（第 5 條）
+            </h3>
+
+            <div class="doc-card">
+              <div class="doc-block">
+                <p
+                  style="
+                    color: #334155;
+                    font-size: 15px;
+                    line-height: 1.7;
+                    margin: 0 0 12px 0;
+                  "
+                >
+                  無論聲請解釋章程或統一解釋，均需以聲請書明確載明下列 4
+                  項要件：
+                </p>
+                <ul class="doc-list">
+                  <li>
+                    <strong>聲請目的：</strong
+                    >明確指出所求之解釋方向或裁判結果。
+                  </li>
+                  <li>
+                    <strong>疑義經過：</strong
+                    >疑義、爭議或見解歧異之經過及涉及之條文。
+                  </li>
+                  <li>
+                    <strong>聲請理由：</strong
+                    >聲請理由及聲請人對本案之立場與見解。
+                  </li>
+                  <li><strong>關係文件：</strong>相關關係文件之名稱及件數。</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【區塊 5：審理調查程序】 -->
+          <section id="section-procedure" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              四、 審理調查程序（第 6 條）
+            </h3>
+
+            <div class="doc-card">
+              <div class="doc-block">
+                <ul class="doc-list">
+                  <li>
+                    <strong>資料參考：</strong
+                    >審理過程中應參考相關立法資料與歷史沿革。
+                  </li>
+                  <li>
+                    <strong>調查與說明：</strong
+                    >得依請求或逕行通知聲請人、關係人及有關機關進行說明或實質調查。
+                  </li>
+                  <li>
+                    <strong>辯論機制：</strong
+                    >必要時得舉辦學生言詞辯論以釐清爭點。
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【區塊 6：表決與決議門檻】 -->
+          <section id="section-thresholds" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-table-cells"></i>
+              五、 表決與決議門檻（第 7 條）
+            </h3>
+
+            <div class="table-responsive-wrapper">
+              <table class="committee-table">
+                <thead>
+                  <tr>
+                    <th style="width: 44%">決議事項</th>
+                    <th style="width: 28%">出席門檻（現有總額）</th>
+                    <th style="width: 28%">同意門檻（出席人數）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="committee-name">一般章程解釋</td>
+                    <td>1/2 以上</td>
+                    <td>2/3 以上</td>
+                  </tr>
+                  <tr>
+                    <td class="committee-name">
+                      宣告自治條例牴觸章程（宣告無效）
+                    </td>
+                    <td>1/2 以上</td>
+                    <td>過半數</td>
+                  </tr>
+                  <tr>
+                    <td class="committee-name">統一解釋自治條例及自治規則</td>
+                    <td>過半數</td>
+                    <td>過半數</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【區塊 7：公布與執行效力】 -->
+          <section id="section-effect" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-bullhorn"></i>
+              六、 公布與執行效力（第 8 條）
+            </h3>
+
+            <div class="doc-card">
+              <div class="doc-block">
+                <ul class="doc-list">
+                  <li>
+                    <strong>文件一併公布：</strong
+                    >決議之解釋文須附具解釋理由書，並連同各委員之協同意見書或不同意見書一併由本會公布，並正式通知聲請人及關係人。
+                  </li>
+                  <li>
+                    <strong>執行宣告：</strong
+                    >得諭知有關機關執行，並確定執行之種類與方法。
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【💡 最下方法規來源引導與 Notion 按鈕】 -->
+          <div class="statute-link-wrapper">
+            <p class="statute-hint">
+              <i class="fa-solid fa-circle-info" style="color: #0284c7"></i>
+              本頁引述之條文皆出自《評議委員會解釋案審理自治條例》
+            </p>
+            <a
+              href="https://kssasite.notion.site/21acd7477baf80809d60d06eb06da013"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="statute-btn"
+            >
+              <i class="fa-solid fa-book-bookmark"></i>
+              查閱《評議委員會解釋案審理自治條例》條文全文
+              <i
+                class="fa-solid fa-arrow-up-right-from-square"
+                style="font-size: 12px; margin-left: 2px"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </main>
+
+      <!-- 全站 Footer -->
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-left">
+            <p class="footer-brand">
+              高雄市立高雄高級中學學生聯合自治會 評議委員會
+            </p>
+            <p class="footer-sub">807302 高雄市三民區建國三路 50 號</p>
+          </div>
+          <div class="footer-right">
+            <p>聯絡信箱：kssa1922@gmail.com</p>
+            <p>
+              最後更新：<span id="site-last-updated">2026/08/05</span> ｜
+              訪客計數：<span id="visitor-count">12,345</span>
+            </p>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <p>© 2026 KSHS Judiciary Committee. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 💡 專屬樣式 -->
+    <style>
+      .page-anchors {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .anchor-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background-color: #f1f5f9;
+        color: #334155;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13.5px;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #cbd5e1;
+        transition: all 0.2s ease;
+      }
+      .anchor-pill:hover {
+        background-color: #0284c7;
+        color: #ffffff;
+        border-color: #0284c7;
+        transform: translateY(-1px);
+        box-shadow: 0 3px 10px rgba(2, 132, 199, 0.2);
+      }
+
+      /* 條文文件流容器 */
+      .doc-card {
+        padding: 8px 0;
+        margin-top: 12px;
+      }
+      .doc-block {
+        margin-bottom: 20px;
+      }
+      .doc-block:last-child {
+        margin-bottom: 0;
+      }
+      .doc-divider {
+        border: 0;
+        border-top: 1px dashed #cbd5e1;
+        margin: 20px 0;
+      }
+      .doc-subtitle {
+        font-size: 17px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+      }
+      .doc-list,
+      .doc-list ul {
+        list-style: none;
+        padding-left: 20px;
+        margin: 0;
+      }
+      .doc-list > li {
+        position: relative;
+        margin-bottom: 10px;
+        color: #334155;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+      .doc-list > li::before {
+        content: "◦";
+        position: absolute;
+        left: -18px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #475569;
+      }
+      .doc-list ul {
+        margin-top: 6px;
+        padding-left: 22px;
+      }
+      .doc-list ul > li {
+        position: relative;
+        margin-bottom: 6px;
+        color: #475569;
+        font-size: 14.5px;
+        line-height: 1.6;
+      }
+      .doc-list ul > li::before {
+        content: "◦";
+        position: absolute;
+        left: -18px;
+        font-size: 15px;
+        color: #64748b;
+      }
+
+      /* 表格樣式 */
+      .table-responsive-wrapper {
+        overflow-x: auto;
+        border-radius: 10px;
+        border: 1px solid #cbd5e1;
+        margin-top: 16px;
+      }
+      .committee-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        background: #ffffff;
+        font-size: 14px;
+      }
+      .committee-table th {
+        background-color: #0f172a;
+        color: #ffffff;
+        padding: 14px 16px;
+        font-weight: 700;
+      }
+      .committee-table td {
+        padding: 14px 16px;
+        border-bottom: 1px solid #e2e8f0;
+        color: #334155;
+        vertical-align: top;
+        line-height: 1.6;
+      }
+      .committee-name {
+        font-weight: 700;
+        color: #0f172a;
+      }
+
+      /* 💡 法規來源連結與按鈕樣式 */
+      .statute-link-wrapper {
+        margin-top: 40px;
+        padding: 28px 24px;
+        background-color: #f8fafc;
+        border: 1px dashed #cbd5e1;
+        border-radius: 16px;
+        text-align: center;
+      }
+      .statute-hint {
+        margin: 0 0 20px 0;
+        color: #0f172a;
+        font-size: 15px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .statute-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: #0284c7;
+        color: #ffffff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+      }
+      .statute-btn:hover {
+        background-color: #0369a1;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+      }
+    </style>
+
+    <!-- 導覽列滑動膠囊腳本 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburgerBtn = document.querySelector(".hamburger-btn");
+        const navList = document.querySelector(".nav-list");
+        if (hamburgerBtn && navList) {
+          hamburgerBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            navList.classList.toggle("active");
+          });
+        }
+
+        const activePill = document.querySelector(".nav-active-pill");
+        const navLinks = document.querySelectorAll(".nav-list .nav-item > a");
+
+        if (!navList || !activePill) return;
+
+        function movePillTo(targetLink) {
+          if (!targetLink) return;
+          navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          targetLink.classList.add("is-pill-active");
+
+          const targetRect = targetLink.getBoundingClientRect();
+          const listRect = navList.getBoundingClientRect();
+
+          const left = targetRect.left - listRect.left;
+          const top = targetRect.top - listRect.top;
+          const width = targetRect.width;
+          const height = targetRect.height;
+
+          activePill.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+          activePill.style.width = `${width}px`;
+          activePill.style.height = `${height}px`;
+          activePill.style.opacity = "1";
+        }
+
+        const currentActiveLink = document.querySelector(
+          ".nav-list .nav-item.active > a",
+        );
+        if (currentActiveLink) {
+          setTimeout(() => movePillTo(currentActiveLink), 100);
+        }
+
+        navLinks.forEach((link) => {
+          link.addEventListener("mouseenter", () => movePillTo(link));
+        });
+
+        navList.addEventListener("mouseleave", () => {
+          if (currentActiveLink) {
+            movePillTo(currentActiveLink);
+          } else {
+            activePill.style.opacity = "0";
+            navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          const currentLink = document.querySelector(
+            ".nav-list .nav-item > a.is-pill-active",
+          );
+          if (currentLink) movePillTo(currentLink);
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 抓取最後更新時間，若無資料則預設顯示今天
+        const savedDate = localStorage.getItem("kshs_last_updated_date");
+        const lastUpdatedSpan = document.getElementById("site-last-updated");
+
+        if (lastUpdatedSpan) {
+          if (savedDate) {
+            lastUpdatedSpan.innerText = savedDate;
+          } else {
+            const today = new Date();
+            const defaultDate = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getDate()).padStart(2, "0")}`;
+            lastUpdatedSpan.innerText = defaultDate;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

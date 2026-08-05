@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>社團介紹專區 - 高雄市立高雄高級中學學聯會</title>
+    <script
+      src="https://kit.fontawesome.com/552437327d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 💡 檯燈深淺色切換器 -->
+    <div
+      class="lamp-wrapper"
+      id="theme-lamp-btn"
+      title="拉一下切換亮色/暗色模式"
+    >
+      <div class="lamp-wire"></div>
+      <div class="lamp-top"></div>
+      <div class="lamp-shade">
+        <div class="lamp-glow"></div>
+      </div>
+      <!-- 可拉動的燈繩 -->
+      <div class="lamp-cord-wrap">
+        <div class="lamp-cord">
+          <div class="lamp-knob"></div>
+        </div>
+      </div>
+    </div>
+    <div class="Main">
+      <!-- 頂部導覽列 -->
+      <header>
+        <nav class="Main-A">
+          <div class="nav-brand">
+            <img src="./images/logo.png" alt="Logo" class="nav-logo" />
+            <span class="nav-title">高雄中學學聯會</span>
+          </div>
+
+          <button class="hamburger-btn" type="button" aria-label="切換選單">
+            <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
+          </button>
+
+          <ul class="nav-list">
+            <div class="nav-active-pill"></div>
+
+            <li class="nav-item"><a href="index.html">首頁</a></li>
+            <li class="nav-item"><a href="calendar.html">行事曆</a></li>
+            <li class="nav-item"><a href="links.html">相關連結</a></li>
+            <li class="nav-item"><a href="feedback.html">意見反映</a></li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學聯會介紹 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="officers.html">幹部與工作介紹</a></li>
+                <li><a href="exec-intro.html">行政中心組織活動總覽</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學生議會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="council-intro.html">學生議會組織運作總覽</a></li>
+                <li><a href="council-rules.html">學生議會議事規範總覽</a></li>
+                <li><a href="council-budget.html">學生會預決算審查總覽</a></li>
+                <li><a href="council-docs.html">學生議會議事公開專區</a></li>
+                <li>
+                  <a href="council-templates.html">學生會選罷與提案指南</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">評議委員會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="court-intro.html">評議會與司法救濟總覽</a></li>
+                <li>
+                  <a href="court-interpretations.html">評議會解釋與審理總覽</a>
+                </li>
+                <li><a href="court-docs.html">評議會議事公開專區</a></li>
+              </ul>
+            </li>
+
+            <!-- 💡 當前分頁：資訊專區 ▾ -->
+            <li class="nav-item has-dropdown active">
+              <a href="#">資訊專區 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="activities.html">活動資訊</a></li>
+                <li><a href="clubs.html">社團介紹</a></li>
+                <li><a href="other-info.html">其他資訊</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- 主要內容區 -->
+      <main class="council-page">
+        <div class="council-container">
+          <!-- 頁面標題 -->
+          <div class="council-header">
+            <h2>雄中社團博覽會</h2>
+            <p class="council-subtitle">
+              探索多元社團風貌！每次重整網頁或按下隨機換一換按鈕皆會重新洗牌排序!!
+            </p>
+            <hr class="header-divider" />
+          </div>
+
+          <!-- 控制工具列：搜尋框、分類標籤、隨機洗牌鈕 -->
+          <div class="club-controls">
+            <!-- 搜尋框 -->
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input
+                type="text"
+                id="club-search-input"
+                placeholder="搜尋社團名稱、口號或簡介關鍵字..."
+              />
+            </div>
+
+            <!-- 右側：分類過濾與洗牌按鈕 -->
+            <div class="filter-group">
+              <button type="button" class="category-pill active" data-cat="all">
+                全部社團
+              </button>
+              <button type="button" class="category-pill" data-cat="星期三社團">
+                星期三社團
+              </button>
+              <button
+                type="button"
+                class="category-pill"
+                data-cat="特殊時段社團"
+              >
+                特殊時段社團
+              </button>
+
+              <button
+                type="button"
+                id="shuffle-btn"
+                class="shuffle-btn"
+                title="手動隨機排序"
+              >
+                <i class="fa-solid fa-shuffle"></i> 隨機換一換
+              </button>
+            </div>
+          </div>
+
+          <!-- 社團卡片容器 -->
+          <div id="club-grid" class="club-grid">
+            <!-- JS 動態渲染卡片區 -->
+          </div>
+        </div>
+      </main>
+
+      <!-- 詳細介紹 Modal 彈出視窗 -->
+      <div id="club-modal" class="modal-overlay">
+        <div class="modal-card">
+          <button type="button" class="modal-close" id="modal-close-btn">
+            &times;
+          </button>
+          <div class="modal-img-wrapper">
+            <img id="modal-img" src="" alt="社團宣傳照" />
+          </div>
+          <div class="modal-body">
+            <div class="modal-header-meta">
+              <span id="modal-cat" class="club-badge">分類</span>
+              <span id="modal-fee" class="modal-fee-tag">社費：$0</span>
+            </div>
+            <h3 id="modal-title">社團名稱</h3>
+            <p id="modal-slogan" class="modal-slogan">「一句 Slogan」</p>
+            <hr class="modal-divider" />
+            <div id="modal-content" class="modal-content">詳細內容...</div>
+            <div class="modal-footer">
+              <a
+                id="modal-ig-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-ig"
+              >
+                <i class="fa-brands fa-instagram"></i> 造訪官方 IG
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 全站 Footer -->
+      <footer class="site-footer">
+        <div class="footer-container">
+          <!-- 左側：單位與地址 -->
+          <div class="footer-left">
+            <p class="footer-brand">高雄市立高雄高級中學學生聯合自治會</p>
+            <p class="footer-sub">807302 高雄市三民區建國三路 50 號</p>
+          </div>
+
+          <!-- 右側：信箱與更新資訊 -->
+          <div class="footer-right">
+            <p>
+              學聯會Ig:
+              <a
+                href="https://www.instagram.com/kssa___117th?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                >kssa___117th
+              </a>
+            </p>
+            <p>聯絡信箱：kssa1922@gmail.com</p>
+            <p>
+              最後更新：<span id="site-last-updated">2026/08/05</span> ｜
+              訪客計數：<span id="visitor-count">12,345</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 最底版權宣告 -->
+        <div class="footer-copyright">
+          <p>© 2026 KSHS SA. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 💡 社團卡片與控制區專屬 CSS -->
+    <style>
+      .club-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .search-box {
+        position: relative;
+        width: 100%;
+      }
+      .search-icon {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #94a3b8;
+        font-size: 16px;
+      }
+      .search-box input {
+        width: 100%;
+        padding: 12px 16px 12px 44px;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        font-size: 15px;
+        outline: none;
+        transition: all 0.2s ease;
+        box-sizing: border-box;
+      }
+      .search-box input:focus {
+        border-color: #0284c7;
+        box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+      }
+
+      .filter-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .category-pill {
+        background-color: #f1f5f9;
+        color: #475569;
+        border: 1px solid #cbd5e1;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .category-pill:hover {
+        background-color: #e2e8f0;
+      }
+      .category-pill.active {
+        background-color: #0284c7;
+        color: #ffffff;
+        border-color: #0284c7;
+        box-shadow: 0 3px 10px rgba(2, 132, 199, 0.2);
+      }
+      .shuffle-btn {
+        margin-left: auto;
+        background-color: #0f172a;
+        color: #ffffff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s ease;
+      }
+      .shuffle-btn:hover {
+        background-color: #1e293b;
+        transform: rotate(3deg) scale(1.02);
+      }
+
+      /* 網格卡片 */
+      .club-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+      }
+      .club-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+      .club-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        border-color: #cbd5e1;
+      }
+      .club-cover-wrapper {
+        width: 100%;
+        height: 180px;
+        background-color: #f1f5f9;
+        overflow: hidden;
+        position: relative;
+      }
+      .club-cover-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+      .club-card:hover .club-cover-img {
+        transform: scale(1.05);
+      }
+
+      .club-card-body {
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .club-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .club-badge {
+        background-color: #e0f2fe;
+        color: #0284c7;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 12px;
+      }
+      .club-name {
+        font-size: 18px;
+        font-weight: 800;
+        color: #0f172a;
+        margin: 0 0 4px 0;
+      }
+      .club-slogan {
+        font-size: 13.5px;
+        color: #0284c7;
+        font-weight: 600;
+        font-style: italic;
+        margin: 0 0 12px 0;
+      }
+      .club-desc {
+        font-size: 14px;
+        color: #475569;
+        line-height: 1.6;
+        margin-bottom: 16px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .club-card-footer {
+        margin-top: auto;
+        padding-top: 14px;
+        border-top: 1px dashed #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .club-fee {
+        font-size: 13px;
+        font-weight: 700;
+        color: #16a34a;
+      }
+      .btn-detail-trigger {
+        background: none;
+        border: 1px solid #cbd5e1;
+        color: #0284c7;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12.5px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .btn-detail-trigger:hover {
+        background-color: #0284c7;
+        color: #ffffff;
+        border-color: #0284c7;
+      }
+
+      /* 💡 拓寬與優化 Modal 彈出視窗（解決裁切與擁擠感） */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(15, 23, 42, 0.65);
+        backdrop-filter: blur(6px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 24px 16px;
+        box-sizing: border-box;
+      }
+      .modal-overlay.active {
+        display: flex;
+      }
+
+      .modal-card {
+        background: #ffffff;
+        border-radius: 20px;
+        max-width: 680px; /* 拓寬整體卡片（原 550px） */
+        width: 100%;
+        max-height: 88vh;
+        overflow-y: auto;
+        position: relative;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      /* 優化關閉按鈕，避免遮擋照片 */
+      .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #0f172a;
+        border: 1px solid #cbd5e1;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: all 0.2s ease;
+      }
+      .modal-close:hover {
+        background: #ffffff;
+        transform: scale(1.08);
+        color: #ef4444;
+      }
+
+      /* 照片容器：contain 模式，完整呈現整張圖不切字 */
+      .modal-img-wrapper {
+        width: 100%;
+        max-height: 340px;
+        background-color: #0f172a; /* 深色高質感底色 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .modal-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        max-height: 340px;
+        object-fit: contain; /* 完整顯示照片全貌，絕不裁切 */
+      }
+
+      /* 內文區域：加大內距，通透不擁擠 */
+      .modal-body {
+        padding: 32px;
+      }
+      .modal-header-meta {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+        align-items: center;
+      }
+      .modal-fee-tag {
+        font-size: 13px;
+        font-weight: 700;
+        color: #16a34a;
+        background: #f0fdf4;
+        padding: 4px 12px;
+        border-radius: 12px;
+        border: 1px solid #bbf7d0;
+      }
+      .modal-body h3 {
+        font-size: 24px;
+        font-weight: 800;
+        color: #0f172a;
+        margin: 0 0 6px 0;
+      }
+      .modal-slogan {
+        font-size: 15px;
+        color: #0284c7;
+        font-weight: 600;
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+      .modal-divider {
+        border: 0;
+        border-top: 1px solid #f1f5f9;
+        margin: 20px 0;
+      }
+      .modal-content {
+        font-size: 15px;
+        color: #334155;
+        line-height: 1.8;
+        white-space: pre-line;
+        margin-bottom: 28px;
+      }
+      .btn-ig {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: linear-gradient(
+          45deg,
+          #f09433,
+          #e6683c,
+          #dc2743,
+          #cc2366,
+          #bc1888
+        );
+        color: #ffffff;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 700;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(220, 39, 67, 0.25);
+        transition: all 0.2s ease;
+      }
+      .btn-ig:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(220, 39, 67, 0.35);
+      }
+    </style>
+
+    <!-- 引入社團腳本 -->
+    <script src="./js/clubs.js"></script>
+
+    <!-- 導覽列滑動膠囊腳本 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburgerBtn = document.querySelector(".hamburger-btn");
+        const navList = document.querySelector(".nav-list");
+        if (hamburgerBtn && navList) {
+          hamburgerBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            navList.classList.toggle("active");
+          });
+        }
+
+        const activePill = document.querySelector(".nav-active-pill");
+        const navLinks = document.querySelectorAll(".nav-list .nav-item > a");
+
+        if (!navList || !activePill) return;
+
+        function movePillTo(targetLink) {
+          if (!targetLink) return;
+          navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          targetLink.classList.add("is-pill-active");
+
+          const targetRect = targetLink.getBoundingClientRect();
+          const listRect = navList.getBoundingClientRect();
+
+          const left = targetRect.left - listRect.left;
+          const top = targetRect.top - listRect.top;
+          const width = targetRect.width;
+          const height = targetRect.height;
+
+          activePill.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+          activePill.style.width = `${width}px`;
+          activePill.style.height = `${height}px`;
+          activePill.style.opacity = "1";
+        }
+
+        const currentActiveLink = document.querySelector(
+          ".nav-list .nav-item.active > a",
+        );
+        if (currentActiveLink) {
+          setTimeout(() => movePillTo(currentActiveLink), 100);
+        }
+
+        navLinks.forEach((link) => {
+          link.addEventListener("mouseenter", () => movePillTo(link));
+        });
+
+        navList.addEventListener("mouseleave", () => {
+          if (currentActiveLink) {
+            movePillTo(currentActiveLink);
+          } else {
+            activePill.style.opacity = "0";
+            navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          const currentLink = document.querySelector(
+            ".nav-list .nav-item > a.is-pill-active",
+          );
+          if (currentLink) movePillTo(currentLink);
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 抓取最後更新時間，若無資料則預設顯示今天
+        const savedDate = localStorage.getItem("kshs_last_updated_date");
+        const lastUpdatedSpan = document.getElementById("site-last-updated");
+
+        if (lastUpdatedSpan) {
+          if (savedDate) {
+            lastUpdatedSpan.innerText = savedDate;
+          } else {
+            const today = new Date();
+            const defaultDate = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getDate()).padStart(2, "0")}`;
+            lastUpdatedSpan.innerText = defaultDate;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

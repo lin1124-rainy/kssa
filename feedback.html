@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>高雄市立高雄高級中學學聯會 - 意見反映</title>
+    <script
+      src="https://kit.fontawesome.com/552437327d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 💡 檯燈深淺色切換器 -->
+    <div
+      class="lamp-wrapper"
+      id="theme-lamp-btn"
+      title="拉一下切換亮色/暗色模式"
+    >
+      <div class="lamp-wire"></div>
+      <div class="lamp-top"></div>
+      <div class="lamp-shade">
+        <div class="lamp-glow"></div>
+      </div>
+      <!-- 可拉動的燈繩 -->
+      <div class="lamp-cord-wrap">
+        <div class="lamp-cord">
+          <div class="lamp-knob"></div>
+        </div>
+      </div>
+    </div>
+    <div class="Main">
+      <header>
+        <nav class="Main-A">
+          <div class="nav-brand">
+            <img src="./images/logo.png" alt="Logo" class="nav-logo" />
+            <span class="nav-title">高雄中學學聯會</span>
+          </div>
+
+          <button class="hamburger-btn" type="button" aria-label="切換選單">
+            <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
+          </button>
+
+          <ul class="nav-list">
+            <div class="nav-active-pill"></div>
+
+            <li class="nav-item"><a href="index.html">首頁</a></li>
+            <li class="nav-item"><a href="calendar.html">行事曆</a></li>
+            <li class="nav-item"><a href="links.html">相關連結</a></li>
+            <li class="nav-item active">
+              <a href="feedback.html">意見反映</a>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學聯會介紹 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="officers.html">幹部與工作介紹</a></li>
+                <li>
+                  <a href="exec-intro.html">行政中心組織活動總覽</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學生議會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="council-intro.html">學生議會組織運作總覽</a></li>
+                <li><a href="council-rules.html">學生議會議事規範總覽</a></li>
+                <li><a href="council-budget.html">學生會預決算審查總覽</a></li>
+                <li><a href="council-docs.html">學生議會議事公開專區</a></li>
+                <li>
+                  <a href="council-templates.html">學生會選罷與提案指南</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">評議委員會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="court-intro.html">評議會與司法救濟總覽</a></li>
+                <li>
+                  <a href="court-interpretations.html">評議會解釋與審理總覽</a>
+                </li>
+                <li><a href="court-docs.html">評議會議事公開專區</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">資訊專區 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="activities.html">活動資訊</a></li>
+                <li><a href="clubs.html">社團介紹</a></li>
+                <li><a href="other-info.html">其他資訊</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="feedback-page">
+        <div class="feedback-container">
+          <div class="feedback-header">
+            <h2>意見反映專區</h2>
+            <p>
+              同學你好！若對校務自治、學權權益或校園設施有任何建議，歡迎填寫表單反映給學聯會。
+            </p>
+          </div>
+
+          <!-- 表單主體 -->
+          <form id="feedback-form" class="feedback-form">
+            <!-- 1. 類別選單 -->
+            <div class="form-group">
+              <label for="fb-category"
+                >反映類別 <span class="required">*</span></label
+              >
+              <select id="fb-category" required>
+                <option value="" disabled selected>請選擇反映主題...</option>
+                <option value="學生權益">學生權益</option>
+                <option value="校園設施">校園設施 / 衛生環境</option>
+                <option value="學聯會活動">學聯會活動建議</option>
+                <option value="社團事務">社團事務諮詢</option>
+                <option value="其他">其他建議</option>
+              </select>
+            </div>
+
+            <!-- 2. 主旨 -->
+            <div class="form-group">
+              <label for="fb-title"
+                >主旨 / 標題 <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="fb-title"
+                placeholder="請簡述您的意見主題"
+                required
+              />
+            </div>
+
+            <!-- 3. 詳細內文 -->
+            <div class="form-group">
+              <label for="fb-content"
+                >詳細內容描述 <span class="required">*</span></label
+              >
+              <textarea
+                id="fb-content"
+                rows="6"
+                placeholder="請詳細說明具體情況、地點或具體改善建議..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-row">
+              <!-- 4. 姓名/班級（選填） -->
+              <div class="form-group">
+                <label for="fb-name">姓名 / 班級（選填）</label>
+                <input
+                  type="text"
+                  id="fb-name"
+                  placeholder="例：210 歐陽同學（若匿名請留空）"
+                />
+              </div>
+
+              <!-- 5. 聯絡信箱（選填） -->
+              <div class="form-group">
+                <label for="fb-email">聯絡信箱（選填）</label>
+                <input
+                  type="email"
+                  id="fb-email"
+                  placeholder="需幹部回覆請填寫 Email"
+                />
+              </div>
+            </div>
+
+            <!-- 送出按鈕與提示 -->
+            <button type="submit" id="fb-submit-btn" class="btn-submit">
+              <span>送出意見</span>
+            </button>
+            <div id="fb-status-msg" class="status-msg"></div>
+          </form>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-container">
+          <!-- 左側：單位與地址 -->
+          <div class="footer-left">
+            <p class="footer-brand">高雄市立高雄高級中學學生聯合自治會</p>
+            <p class="footer-sub">807302 高雄市三民區建國三路 50 號</p>
+          </div>
+
+          <!-- 右側：信箱與更新資訊 -->
+          <div class="footer-right">
+            <p>
+              學聯會Ig:
+              <a
+                href="https://www.instagram.com/kssa___117th?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                >kssa___117th
+              </a>
+            </p>
+            <p>聯絡信箱：kssa1922@gmail.com</p>
+            <p>
+              最後更新：<span id="site-last-updated">2026/08/05</span> ｜
+              訪客計數：<span id="visitor-count">12,345</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 最底版權宣告 -->
+        <div class="footer-copyright">
+          <p>© 2026 KSHS SA. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 漢堡按鈕與表單送出邏輯 Script -->
+    <script src="./js/feedback.js"></script>
+    <!-- 引入導航區塊 JavaScript -->
+    <script src="./js/nav.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 抓取最後更新時間，若無資料則預設顯示今天
+        const savedDate = localStorage.getItem("kshs_last_updated_date");
+        const lastUpdatedSpan = document.getElementById("site-last-updated");
+
+        if (lastUpdatedSpan) {
+          if (savedDate) {
+            lastUpdatedSpan.innerText = savedDate;
+          } else {
+            const today = new Date();
+            const defaultDate = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getDate()).padStart(2, "0")}`;
+            lastUpdatedSpan.innerText = defaultDate;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

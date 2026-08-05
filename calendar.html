@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>高雄市立高雄高級中學學聯會 - 行事曆</title>
+
+    <!-- FontAwesome 圖示套件 -->
+    <script
+      src="https://kit.fontawesome.com/552437327d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 外部 CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 💡 檯燈深淺色切換器 -->
+    <div
+      class="lamp-wrapper"
+      id="theme-lamp-btn"
+      title="拉一下切換亮色/暗色模式"
+    >
+      <div class="lamp-wire"></div>
+      <div class="lamp-top"></div>
+      <div class="lamp-shade">
+        <div class="lamp-glow"></div>
+      </div>
+      <!-- 可拉動的燈繩 -->
+      <div class="lamp-cord-wrap">
+        <div class="lamp-cord">
+          <div class="lamp-knob"></div>
+        </div>
+      </div>
+    </div>
+    <div class="Main">
+      <header>
+        <nav class="Main-A">
+          <div class="nav-brand">
+            <img src="./images/logo.png" alt="Logo" class="nav-logo" />
+            <span class="nav-title">高雄中學學聯會</span>
+          </div>
+
+          <button class="hamburger-btn" type="button" aria-label="切換選單">
+            <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
+          </button>
+
+          <ul class="nav-list">
+            <div class="nav-active-pill"></div>
+
+            <li class="nav-item"><a href="index.html">首頁</a></li>
+            <li class="nav-item active"><a href="calendar.html">行事曆</a></li>
+            <li class="nav-item"><a href="links.html">相關連結</a></li>
+            <li class="nav-item"><a href="feedback.html">意見反映</a></li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學聯會介紹 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="officers.html">幹部與工作介紹</a></li>
+                <li>
+                  <a href="exec-intro.html">行政中心組織活動總覽</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學生議會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="council-intro.html">學生議會組織運作總覽</a></li>
+                <li><a href="council-rules.html">學生議會議事規範總覽</a></li>
+                <li><a href="council-budget.html">學生會預決算審查總覽</a></li>
+                <li><a href="council-docs.html">學生議會議事公開專區</a></li>
+                <li>
+                  <a href="council-templates.html">學生會選罷與提案指南</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">評議委員會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="court-intro.html">評議會與司法救濟總覽</a></li>
+                <li>
+                  <a href="court-interpretations.html">評議會解釋與審理總覽</a>
+                </li>
+                <li><a href="court-docs.html">評議會議事公開專區</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown active">
+              <a href="#">資訊專區 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="activities.html">活動資訊</a></li>
+                <li><a href="clubs.html">社團介紹</a></li>
+                <li><a href="other-info.html">其他資訊</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="calendar-page">
+        <div class="calendar-container">
+          <!-- 頂部標題與功能按鈕區 -->
+          <div class="calendar-header-actions">
+            <h2>行事曆</h2>
+            <!-- 💡 階層 1: 32px -->
+            <div class="action-buttons">
+              <button type="button" id="btn-today" class="btn-secondary">
+                查看今天
+              </button>
+              <button type="button" id="btn-pick-date" class="btn-secondary">
+                切換指定日期
+              </button>
+              <button type="button" id="btn-add-event" class="btn-secondary">
+                ＋ 新增行程
+              </button>
+              <input type="date" id="hidden-date-input" style="display: none" />
+            </div>
+          </div>
+
+          <!-- 月曆主體區（藍框已刪除） -->
+          <div class="calendar-box">
+            <!-- 💡 6. 年月標題與左右箭頭結合 (August 2026) -->
+            <div class="calendar-month-header">
+              <button
+                type="button"
+                id="prev-month"
+                class="arrow-btn"
+                aria-label="上一個月"
+              >
+                &lt;
+              </button>
+              <span id="calendar-year-month" class="calendar-month-title"
+                >August 2026</span
+              >
+              <!-- 💡 階層 2: 20px 黑色 -->
+              <button
+                type="button"
+                id="next-month"
+                class="arrow-btn"
+                aria-label="下一個月"
+              >
+                &gt;
+              </button>
+            </div>
+
+            <!-- 💡 階層 3: 14px 星期抬頭 -->
+            <div class="calendar-weekdays">
+              <div>Sun</div>
+              <div>Mon</div>
+              <div>Tue</div>
+              <div>Wed</div>
+              <div>Thu</div>
+              <div>Fri</div>
+              <div>Sat</div>
+            </div>
+
+            <!-- 💡 階層 4: 18px 日期數字網格 -->
+            <div class="calendar-days" id="calendar-days"></div>
+          </div>
+
+          <hr class="calendar-divider" />
+
+          <!-- 底部：指定日期的行事曆列表區 -->
+          <section class="event-details-section">
+            <h3 id="selected-date-display">請選擇日期查看行事曆</h3>
+            <!-- 💡 階層 5: 16px 事件文字 -->
+            <ul id="event-list" class="event-list"></ul>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-container">
+          <!-- 左側：單位與地址 -->
+          <div class="footer-left">
+            <p class="footer-brand">高雄市立高雄高級中學學生聯合自治會</p>
+            <p class="footer-sub">807302 高雄市三民區建國三路 50 號</p>
+          </div>
+
+          <!-- 右側：信箱與更新資訊 -->
+          <div class="footer-right">
+            <p>
+              學聯會Ig:
+              <a
+                href="https://www.instagram.com/kssa___117th?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                >kssa___117th
+              </a>
+            </p>
+            <p>聯絡信箱：kssa1922@gmail.com</p>
+            <p>
+              最後更新：<span id="site-last-updated">2026/08/05</span> ｜
+              訪客計數：<span id="visitor-count">12,345</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 最底版權宣告 -->
+        <div class="footer-copyright">
+          <p>© 2026 KSHS SA. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 💡 已合併為單一的漢堡按鈕控制 JS -->
+    <script>
+      const hamburgerBtn = document.querySelector(".hamburger-btn");
+      const navList = document.querySelector(".nav-list");
+
+      if (hamburgerBtn && navList) {
+        hamburgerBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          navList.classList.toggle("active");
+        });
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 抓取最後更新時間，若無資料則預設顯示今天
+        const savedDate = localStorage.getItem("kshs_last_updated_date");
+        const lastUpdatedSpan = document.getElementById("site-last-updated");
+
+        if (lastUpdatedSpan) {
+          if (savedDate) {
+            lastUpdatedSpan.innerText = savedDate;
+          } else {
+            const today = new Date();
+            const defaultDate = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getDate()).padStart(2, "0")}`;
+            lastUpdatedSpan.innerText = defaultDate;
+          }
+        }
+      });
+    </script>
+
+    <!-- 引入行事曆邏輯 JavaScript -->
+    <script src="./js/calendar.js"></script>
+    <!-- 引入導航區塊 JavaScript -->
+    <script src="./js/nav.js"></script>
+  </body>
+</html>

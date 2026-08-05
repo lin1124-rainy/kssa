@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <script
+      src="https://kit.fontawesome.com/552437327d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 💡 把外部的 style.css 匯入進來 -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- 1. 搜尋結果出現的標題 -->
+    <title>高雄中學學聯會</title>
+
+    <!-- 2. 搜尋結果顯示的簡介說明 -->
+    <meta
+      name="description"
+      content="高雄中學學聯會（KSSA）官方網站。提供校園最新活動資訊、學生議會會議紀錄、法規彙編、學生權益意見反映與社團指南。"
+    />
+
+    <!-- 3. 關鍵字（建議寫入校名與學聯會簡稱） -->
+    <meta
+      name="keywords"
+      content="雄中, 高雄中學, 學聯會, 學生會, KSSA, 雄中學生自治"
+    />
+  </head>
+  <body>
+    <div class="Main">
+      <header>
+        <nav class="Main-A">
+          <div class="nav-brand">
+            <img src="./images/logo.png" alt="Logo" class="nav-logo" />
+            <span class="nav-title">高雄中學學聯會</span>
+          </div>
+
+          <button class="hamburger-btn" type="button" aria-label="切換選單">
+            <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
+          </button>
+
+          <ul class="nav-list">
+            <div class="nav-active-pill"></div>
+
+            <li class="nav-item active"><a href="index.html">首頁</a></li>
+            <li class="nav-item"><a href="calendar.html">行事曆</a></li>
+            <li class="nav-item"><a href="links.html">相關連結</a></li>
+            <li class="nav-item"><a href="feedback.html">意見反映</a></li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學聯會介紹 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="officers.html">幹部與工作介紹</a></li>
+                <li>
+                  <a href="exec-intro.html">行政中心組織活動總覽</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學生議會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="council-intro.html">學生議會組織運作總覽</a></li>
+                <li><a href="council-rules.html">學生議會議事規範總覽</a></li>
+                <li><a href="council-budget.html">學生會預決算審查總覽</a></li>
+                <li><a href="council-docs.html">學生議會議事公開專區</a></li>
+                <li>
+                  <a href="council-templates.html">學生會選罷與提案指南</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">評議委員會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="court-intro.html">評議會與司法救濟總覽</a></li>
+                <li>
+                  <a href="court-interpretations.html">評議會解釋與審理總覽</a>
+                </li>
+                <li><a href="court-docs.html">評議會議事公開專區</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">資訊專區 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="activities.html">活動資訊</a></li>
+                <li><a href="clubs.html">社團介紹</a></li>
+                <li><a href="other-info.html">其他資訊</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- 🔒 管理員狀態與登出按鈕 (預設隱藏，登入後自動浮現) -->
+          <button
+            id="admin-logout-btn"
+            class="admin-status-badge"
+            style="display: none"
+          >
+            <i class="fa-solid fa-user-check"></i> 管理者模式中 ｜ 登出
+          </button>
+        </nav>
+      </header>
+      <section class="Main-B">
+        <h1 style="font-size: 50px; font-weight: bold">
+          高雄中學學聯會&nbsp;KSSA
+        </h1>
+        <br />
+        <h2 style="font-size: 40px; font-weight: bold">實事求是，精益求精</h2>
+      </section>
+      <section class="Main-C">
+        <br />
+        <!-- 💡 1. 頂部咖啡色 Banner 區塊 -->
+        <div
+          class="org-banner"
+          style="
+            background-color: #b5a078;
+            width: 100%;
+            padding: 24px 0;
+            text-align: center;
+            margin: 20px 0 32px 0;
+          "
+        >
+          <h2
+            style="
+              margin: 0;
+              color: #1e293b;
+              font-size: 24px;
+              font-weight: 700;
+              letter-spacing: 1px;
+            "
+          >
+            學生自治組織架構
+          </h2>
+        </div>
+
+        <!-- 💡 2. 下方限制寬度的內容區域 (按鈕與圖片) -->
+        <section
+          class="org-content-container"
+          style="max-width: 900px; margin: 0 auto 40px auto; padding: 0 16px"
+        >
+          <!-- Tab 切換按鈕 -->
+          <div
+            class="org-tab-group"
+            style="
+              display: flex;
+              justify-content: center;
+              gap: 12px;
+              margin-bottom: 24px;
+            "
+          >
+            <button
+              type="button"
+              class="org-tab-btn active"
+              onclick="switchOrgTab('dept')"
+            >
+              行政中心
+            </button>
+            <button
+              type="button"
+              class="org-tab-btn"
+              onclick="switchOrgTab('parliament')"
+            >
+              學生議會
+            </button>
+            <button
+              type="button"
+              class="org-tab-btn"
+              onclick="switchOrgTab('court')"
+            >
+              評議委員會
+            </button>
+          </div>
+
+          <!-- 白底圖片卡片 (置中展示) -->
+          <div class="org-chart-card">
+            <!-- 行政中心 -->
+            <div id="tab-dept" class="org-chart-content active">
+              <h3 class="chart-title">行政中心組織架構</h3>
+              <img
+                src="./images/organize_graph_1.png"
+                alt="行政部門組織架構圖"
+                class="org-img"
+              />
+            </div>
+
+            <!-- 學生議會 -->
+            <div id="tab-parliament" class="org-chart-content">
+              <h3 class="chart-title">學生議會組織架構</h3>
+              <img
+                src="./images/organize_graph_2.png"
+                alt="學生議會組織架構圖"
+                class="org-img"
+              />
+            </div>
+
+            <!-- 評議委員會 -->
+            <div id="tab-court" class="org-chart-content">
+              <h3 class="chart-title">評議委員會組織架構</h3>
+              <img
+                src="./images/organize_graph_3.png"
+                alt="評議委員會組織架構圖"
+                class="org-img"
+              />
+            </div>
+          </div>
+        </section>
+        <!-- 在 Main-C 圖片下方新增部門介紹區 -->
+        <div class="dept-container">
+          <p>
+            高雄中學學生聯合會（簡稱雄中學聯會）是雄中全校學生的最高自治代表組織，秉持「自由、民主、自主」的精神，致力於深化校園民主、推動學生權益，並為全校同學打造豐富且多元的校園生活。
+          </p>
+          <!-- 第一區：行政部門 -->
+          <article class="dept-block">
+            <div class="dept-title">
+              <h3>行政部門</h3>
+            </div>
+            <div class="dept-content">
+              <p>
+                即一般所狹義的「學聯會」，由正副會長領導，主管整體運作並受學生議會監督。行政部門下轄秘書部、公關部、活動部、學藝部、社團部、學權部、財務部、自治部及媒資部。
+              </p>
+              <p>
+                行政部門作為學生與學校間的橋樑，代表學生與校方溝通，並爭取與維護學生權利。除此之外，每年也固定舉辦許多大型校園活動(例如:校慶歌唱大賽、耶誕晚會、耶誕傳情...)，同時也會發行學聯會周邊(例如:T-恤、校慶紀念物...)。
+              </p>
+            </div>
+          </article>
+
+          <!-- 第二區：學生議會 -->
+          <article class="dept-block">
+            <div class="dept-title">
+              <h3>學生議會</h3>
+            </div>
+            <div class="dept-content">
+              <p>
+                學生議會為學生自治的立法與監督機關，正副議長由學生議員內部選舉，其具有「立法權」負責修訂校園規定、「審查權」審閱學生會預算、「監督權」聽取學生會工作報告並質詢。
+              </p>
+            </div>
+          </article>
+          <!-- 第三區：評議委員會 -->
+          <article class="dept-block">
+            <div class="dept-title">
+              <h3>評議委員會</h3>
+            </div>
+            <div class="dept-content">
+              <p>
+                評議委員會為掌理學聯會司法事務的獨立機關(類似司法院)，由五名獨立行使職權之評議委員組成，並設主任委員及副主任委員各一人。委員會下設兩大法庭分工運作：
+              </p>
+              <p>
+                章程學生法庭：由五位委員合議審理，負責解釋自治會章程與統一解釋自治法規。
+              </p>
+              <p>
+                行政學生法庭：採二級二審制（分為高等與最高行政學生法庭），審理學生行政訴訟及非訟案件。
+              </p>
+            </div>
+          </article>
+          <p>
+            多年來，雄中學聯會不僅關注校內議題，更鼓勵同學關心公眾事務與社會趨勢，培養獨立思辨與公民素養。我們致力於建構一個開放、多元且具包容性的校園環境，讓每一位雄中人的聲音都能被聽見與實現。
+          </p>
+        </div>
+      </section>
+      <footer class="site-footer">
+        <div class="footer-container">
+          <!-- 左側：單位與地址 -->
+          <div class="footer-left">
+            <p class="footer-brand">高雄市立高雄高級中學學生聯合自治會</p>
+            <p class="footer-sub">807302 高雄市三民區建國三路 50 號</p>
+          </div>
+
+          <!-- 右側：信箱與更新資訊 -->
+          <div class="footer-right">
+            <p>
+              學聯會Ig:
+              <a
+                href="https://www.instagram.com/kssa___117th?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                >kssa___117th
+              </a>
+            </p>
+            <p>聯絡信箱：kssa1922@gmail.com</p>
+            <p>
+              最後更新：<span id="site-last-updated">2026/08/05</span> ｜
+              訪客計數：<span id="visitor-count">12,345</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 最底版權宣告 -->
+        <div class="footer-copyright">
+          <p>© 2026 KSHS SA. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      // 1. 抓取 HTML 裡的漢堡按鈕與選單
+      const hamburgerBtn = document.querySelector(".hamburger-btn");
+      const navList = document.querySelector(".nav-list");
+
+      // 2. 監聽點擊事件：當按鈕被點擊時，切換 (toggle) .active 類別
+      hamburgerBtn.addEventListener("click", () => {
+        navList.classList.toggle("active");
+      });
+    </script>
+    <!-- 引入導航區塊 JavaScript -->
+    <script src="./js/nav.js"></script>
+    <!-- 💡 四角隱藏登入感應區 (完全透明) -->
+    <div class="secret-corner secret-tl" id="corner-tl" title="觸發區1"></div>
+    <div class="secret-corner secret-tr" id="corner-tr" title="觸發區2"></div>
+    <div class="secret-corner secret-bl" id="corner-bl" title="觸發區3"></div>
+    <div class="secret-corner secret-br" id="corner-br" title="觸發區4"></div>
+
+    <!-- 💡 高質感 Glassmorphism 毛玻璃登入 Modal -->
+    <div id="admin-login-modal" class="glass-modal-overlay">
+      <div class="glass-modal-card">
+        <!-- 關閉按鈕 -->
+        <button type="button" class="glass-modal-close" id="login-modal-close">
+          &times;
+        </button>
+
+        <!-- 標題區 -->
+        <div class="glass-modal-header">
+          <h2>Login</h2>
+          <p>KSHS SA Admin Portal</p>
+        </div>
+
+        <!-- 表單 -->
+        <form id="admin-login-form" class="glass-login-form">
+          <!-- 帳號輸入框 -->
+          <div class="glass-input-group">
+            <i class="fa-solid fa-user input-icon"></i>
+            <input
+              type="text"
+              id="login-account"
+              placeholder=" "
+              required
+              autocomplete="off"
+            />
+            <label for="login-account">Account</label>
+          </div>
+
+          <!-- 密碼輸入框 -->
+          <div class="glass-input-group">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input
+              type="password"
+              id="login-password"
+              placeholder=" "
+              required
+            />
+            <label for="login-password">Password</label>
+          </div>
+
+          <!-- 錯誤提示 -->
+          <div
+            id="login-error-msg"
+            class="glass-error-msg"
+            style="display: none"
+          >
+            <i class="fa-solid fa-circle-exclamation"></i>
+            帳號或密碼錯誤，請重新輸入！
+          </div>
+
+          <!-- 登入提交按鈕 -->
+          <button type="submit" class="btn-glass-submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    function switchOrgTab(tabName) {
+      // 切換按鈕 active 樣式
+      const buttons = document.querySelectorAll(".org-tab-btn");
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      event.currentTarget.classList.add("active");
+
+      // 切換圖表顯示
+      const contents = document.querySelectorAll(".org-chart-content");
+      contents.forEach((content) => content.classList.remove("active"));
+
+      const targetContent = document.getElementById("tab-" + tabName);
+      if (targetContent) {
+        targetContent.classList.add("active");
+      }
+    }
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 抓取最後更新時間，若無資料則預設顯示今天
+      const savedDate = localStorage.getItem("kshs_last_updated_date");
+      const lastUpdatedSpan = document.getElementById("site-last-updated");
+
+      if (lastUpdatedSpan) {
+        if (savedDate) {
+          lastUpdatedSpan.innerText = savedDate;
+        } else {
+          const today = new Date();
+          const defaultDate = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getDate()).padStart(2, "0")}`;
+          lastUpdatedSpan.innerText = defaultDate;
+        }
+      }
+    });
+  </script>
+  <script src="./js/login.js"></script>
+</html>

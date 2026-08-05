@@ -1,0 +1,328 @@
+/* =========================================================
+   高雄市立高雄高級中學學聯會 - 全站主樣式入口檔 (Master Stylesheet)
+   ========================================================= */
+@import url("./css/base.css");
+@import url("./css/navbar.css");
+@import url("./css/officers.css");
+@import url("./css/activities.css");
+@import url("./css/council.css");
+
+/* =========================================================
+   組織架構卡片與圖表樣式
+   ========================================================= */
+.org-tab-btn {
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.org-tab-btn:hover {
+  background-color: #f1f5f9;
+  color: #0284c7;
+}
+
+.org-tab-btn.active {
+  background-color: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.org-chart-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.org-chart-content {
+  display: none;
+}
+
+.org-chart-content.active {
+  display: block;
+}
+
+.chart-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.org-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.org-banner {
+  height: 130px;
+  align-content: center;
+}
+
+/* =========================================================
+   🛠️ 消除全站橫向滾動条與溢出（Prevent Horizontal Overflow）
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* 強制隱藏橫向滾動條 */
+  margin: 0;
+  padding: 0;
+}
+
+.Main,
+main,
+header,
+nav,
+footer,
+.council-page,
+.council-container {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+[style*="100vw"] {
+  width: 100% !important;
+}
+
+/* =========================================================
+   🕵️ 四角隱藏感應區
+   ========================================================= */
+.secret-corner {
+  position: fixed;
+  width: 100px;
+  height: 80px;
+  z-index: 8888;
+  background: transparent;
+  cursor: default; /* 不顯示手型標籤，達到完全隱蔽效果 */
+  user-select: none;
+}
+
+.secret-tl {
+  top: 0;
+  left: 0;
+} /* 最左上角 */
+.secret-tr {
+  top: 0;
+  right: 0;
+} /* 最右上角 */
+.secret-bl {
+  bottom: 0;
+  left: 0;
+} /* 最左下角 (版權宣告左側) */
+.secret-br {
+  bottom: 0;
+  right: 0;
+} /* 最右下角 (版權宣告右側) */
+
+/* =========================================================
+   ✨ Glassmorphism 毛玻璃質感登入視窗
+   ========================================================= */
+.glass-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 19, 41, 0.65); /* 暗色基底 */
+  backdrop-filter: blur(12px); /* 背景動態高斯模糊 */
+  -webkit-backdrop-filter: blur(12px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.glass-modal-overlay.active {
+  display: flex;
+  animation: glassPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes glassPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.glass-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  padding: 42px 36px;
+  background: rgba(255, 255, 255, 0.07); /* 半透明白色 */
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.18); /* 微光細邊框 */
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.35),
+    inset 0 0 20px rgba(255, 255, 255, 0.05); /* 內發光細節 */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #ffffff;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.glass-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.glass-modal-close:hover {
+  color: #ffffff;
+}
+
+.glass-modal-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.glass-modal-header p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 36px 0;
+}
+
+.glass-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  margin-bottom: 32px;
+  transition: border-color 0.3s ease;
+}
+
+.glass-input-group:focus-within {
+  border-bottom-color: #ffffff; /* 聚焦時亮白邊框 */
+}
+
+.glass-input-group .input-icon {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-right: 12px;
+  margin-bottom: 8px;
+}
+
+.glass-input-group input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 8px 0;
+  font-size: 15px;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.glass-input-group label {
+  position: absolute;
+  left: 28px;
+  top: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.glass-input-group input:focus ~ label,
+.glass-input-group input:not(:placeholder-shown) ~ label {
+  top: -16px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.glass-error-msg {
+  font-size: 13px;
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.btn-glass-submit {
+  width: 100%;
+  background: #ffffff;
+  color: #0f172a;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+}
+
+.btn-glass-submit:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(255, 255, 255, 0.25);
+}
+
+.btn-glass-submit:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   🔒 管理員登出按鈕樣式
+   ========================================================= */
+.admin-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.25);
+  transition: all 0.2s ease;
+  margin-left: 12px;
+}
+
+.admin-status-badge:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(239, 68, 68, 0.35);
+}

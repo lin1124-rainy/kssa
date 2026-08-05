@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>其他資訊 - 高雄市立高雄高級中學學生聯合自治會</title>
+    <script
+      src="https://kit.fontawesome.com/552437327d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 💡 檯燈深淺色切換器 -->
+    <div
+      class="lamp-wrapper"
+      id="theme-lamp-btn"
+      title="拉一下切換亮色/暗色模式"
+    >
+      <div class="lamp-wire"></div>
+      <div class="lamp-top"></div>
+      <div class="lamp-shade">
+        <div class="lamp-glow"></div>
+      </div>
+      <!-- 可拉動的燈繩 -->
+      <div class="lamp-cord-wrap">
+        <div class="lamp-cord">
+          <div class="lamp-knob"></div>
+        </div>
+      </div>
+    </div>
+    <div class="Main">
+      <!-- 頂部導覽列 -->
+      <header>
+        <nav class="Main-A">
+          <div class="nav-brand">
+            <img src="./images/logo.png" alt="Logo" class="nav-logo" />
+            <span class="nav-title">高雄中學學聯會</span>
+          </div>
+
+          <button class="hamburger-btn" type="button" aria-label="切換選單">
+            <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
+          </button>
+
+          <ul class="nav-list">
+            <div class="nav-active-pill"></div>
+
+            <li class="nav-item"><a href="index.html">首頁</a></li>
+            <li class="nav-item"><a href="calendar.html">行事曆</a></li>
+            <li class="nav-item"><a href="links.html">相關連結</a></li>
+            <li class="nav-item"><a href="feedback.html">意見反映</a></li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學聯會介紹 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="officers.html">幹部與工作介紹</a></li>
+                <li>
+                  <a href="exec-intro.html">行政中心組織活動總覽</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學生議會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="council-intro.html">學生議會組織運作總覽</a></li>
+                <li><a href="council-rules.html">學生議會議事規範總覽</a></li>
+                <li><a href="council-budget.html">學生會預決算審查總覽</a></li>
+                <li><a href="council-docs.html">學生議會議事公開專區</a></li>
+                <li>
+                  <a href="council-templates.html">學生會選罷與提案指南</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">評議委員會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="court-intro.html">評議會與司法救濟總覽</a></li>
+                <li>
+                  <a href="court-interpretations.html">評議會解釋與審理總覽</a>
+                </li>
+                <li><a href="court-docs.html">評議會議事公開專區</a></li>
+              </ul>
+            </li>
+
+            <!-- 💡 當前分頁：資訊專區 ▾ -->
+            <li class="nav-item has-dropdown active">
+              <a href="#">資訊專區 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="activities.html">活動資訊</a></li>
+                <li><a href="clubs.html">社團介紹</a></li>
+                <li><a href="other-info.html">其他資訊</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="council-page">
+        <div class="council-container">
+          <div class="council-header">
+            <h2>其他資訊專區</h2>
+            <p class="council-subtitle">
+              彙整特約商店、生活指南、器材借用與其他補充資源導覽
+            </p>
+            <hr class="header-divider" />
+
+            <div style="text-align: center; margin-top: 16px">
+              <a
+                href="publish.html?tab=link"
+                class="btn-secondary"
+                style="display: inline-flex; align-items: center; gap: 8px"
+              >
+                <i class="fa-solid fa-pen-to-square"></i> 發布資訊 (管理後台)
+              </a>
+            </div>
+          </div>
+
+          <!-- 💡 其他資訊清單容器 -->
+          <div class="doc-table-container" style="margin-top: 24px">
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th style="width: 50%">資訊名稱 / 顯示標題</th>
+                  <th style="width: 30%">發布單位</th>
+                  <th style="width: 20%; text-align: center">前往</th>
+                </tr>
+              </thead>
+              <tbody id="other-info-list">
+                <!-- JS 動態渲染區 -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-container">
+          <!-- 左側：單位與地址 -->
+          <div class="footer-left">
+            <p class="footer-brand">高雄市立高雄高級中學學生聯合自治會</p>
+            <p class="footer-sub">807302 高雄市三民區建國三路 50 號</p>
+          </div>
+
+          <!-- 右側：信箱與更新資訊 -->
+          <div class="footer-right">
+            <p>
+              學聯會 IG：
+              <a
+                href="https://www.instagram.com/kssa___117th?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                >@kssa___117th
+              </a>
+            </p>
+            <p>聯絡信箱：kssa1922@gmail.com</p>
+            <p>
+              最後更新：<span id="site-last-updated">2026/08/05</span> ｜
+              訪客計數：<span id="visitor-count">12,345</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 最底版權宣告 -->
+        <div class="footer-copyright">
+          <p>© 2026 KSHS SA. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 💡 極簡卡片與表格樣式 -->
+    <style>
+      .doc-table-container {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .doc-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+      .doc-table th {
+        background-color: #f8fafc;
+        padding: 14px 18px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #475569;
+        border-bottom: 2px solid #e2e8f0;
+      }
+      .doc-table td {
+        padding: 16px 18px;
+        font-size: 14px;
+        color: #334155;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+      }
+      .doc-row:hover {
+        background-color: #f8fafc;
+      }
+      .link-btn-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        background-color: #f1f5f9;
+        color: #0284c7;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      .link-btn-action:hover {
+        background-color: #0284c7;
+        color: #ffffff;
+        border-color: #0284c7;
+      }
+    </style>
+
+    <!-- 💡 動態渲染腳本 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("other-info-list");
+        // 讀取相關連結資料庫，若無資料顯示提示
+        const links =
+          JSON.parse(localStorage.getItem("kshs_related_links")) || [];
+
+        if (links.length === 0) {
+          container.innerHTML = `<tr><td colspan="3" style="text-align:center; color:#94a3b8; padding:40px;">目前尚無其他資訊連結，可透過管理後台發布。</td></tr>`;
+          return;
+        }
+
+        container.innerHTML = links
+          .map(
+            (item) => `
+            <tr class="doc-row">
+              <td>
+                <div style="font-weight: 700; color: #0f172a; font-size: 15px;">
+                  <i class="fa-solid fa-circle-info" style="color: #0284c7; margin-right: 8px;"></i>
+                  ${item.text}
+                </div>
+              </td>
+              <td>
+                <span class="anchor-pill" style="font-size: 12px; padding: 4px 10px;">${item.department}</span>
+              </td>
+              <td style="text-align: center;">
+                <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="link-btn-action">
+                  開啟連結 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </td>
+            </tr>
+          `,
+          )
+          .join("");
+      });
+    </script>
+
+    <!-- 導覽列膠囊腳本 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburgerBtn = document.querySelector(".hamburger-btn");
+        const navList = document.querySelector(".nav-list");
+        if (hamburgerBtn && navList) {
+          hamburgerBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            navList.classList.toggle("active");
+          });
+        }
+
+        const activePill = document.querySelector(".nav-active-pill");
+        const navLinks = document.querySelectorAll(".nav-list .nav-item > a");
+
+        if (!navList || !activePill) return;
+
+        function movePillTo(targetLink) {
+          if (!targetLink) return;
+          navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          targetLink.classList.add("is-pill-active");
+
+          const targetRect = targetLink.getBoundingClientRect();
+          const listRect = navList.getBoundingClientRect();
+
+          const left = targetRect.left - listRect.left;
+          const top = targetRect.top - listRect.top;
+          const width = targetRect.width;
+          const height = targetRect.height;
+
+          activePill.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+          activePill.style.width = `${width}px`;
+          activePill.style.height = `${height}px`;
+          activePill.style.opacity = "1";
+        }
+
+        const currentActiveLink = document.querySelector(
+          ".nav-list .nav-item.active > a",
+        );
+        if (currentActiveLink) {
+          setTimeout(() => movePillTo(currentActiveLink), 100);
+        }
+
+        navLinks.forEach((link) => {
+          link.addEventListener("mouseenter", () => movePillTo(link));
+        });
+
+        navList.addEventListener("mouseleave", () => {
+          if (currentActiveLink) {
+            movePillTo(currentActiveLink);
+          } else {
+            activePill.style.opacity = "0";
+            navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          const currentLink = document.querySelector(
+            ".nav-list .nav-item > a.is-pill-active",
+          );
+          if (currentLink) movePillTo(currentLink);
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 抓取最後更新時間，若無資料則預設顯示今天
+        const savedDate = localStorage.getItem("kshs_last_updated_date");
+        const lastUpdatedSpan = document.getElementById("site-last-updated");
+
+        if (lastUpdatedSpan) {
+          if (savedDate) {
+            lastUpdatedSpan.innerText = savedDate;
+          } else {
+            const today = new Date();
+            const defaultDate = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getDate()).padStart(2, "0")}`;
+            lastUpdatedSpan.innerText = defaultDate;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

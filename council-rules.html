@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>議事與校園法規專欄 - 高雄市立高雄高級中學學生議會</title>
+    <script
+      src="https://kit.fontawesome.com/552437327d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 💡 檯燈深淺色切換器 -->
+    <div
+      class="lamp-wrapper"
+      id="theme-lamp-btn"
+      title="拉一下切換亮色/暗色模式"
+    >
+      <div class="lamp-wire"></div>
+      <div class="lamp-top"></div>
+      <div class="lamp-shade">
+        <div class="lamp-glow"></div>
+      </div>
+      <!-- 可拉動的燈繩 -->
+      <div class="lamp-cord-wrap">
+        <div class="lamp-cord">
+          <div class="lamp-knob"></div>
+        </div>
+      </div>
+    </div>
+    <div class="Main">
+      <!-- 頂部導覽列 -->
+      <header>
+        <nav class="Main-A">
+          <div class="nav-brand">
+            <img src="./images/logo.png" alt="Logo" class="nav-logo" />
+            <span class="nav-title">高雄中學學生自治會</span>
+          </div>
+
+          <button class="hamburger-btn" type="button" aria-label="切換選單">
+            <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
+          </button>
+
+          <ul class="nav-list">
+            <div class="nav-active-pill"></div>
+
+            <li class="nav-item"><a href="index.html">首頁</a></li>
+            <li class="nav-item"><a href="calendar.html">行事曆</a></li>
+            <li class="nav-item"><a href="links.html">相關連結</a></li>
+            <li class="nav-item"><a href="feedback.html">意見反映</a></li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學聯會介紹 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="officers.html">幹部與工作介紹</a></li>
+                <li>
+                  <a href="exec-intro.html">行政中心組織活動總覽</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown active">
+              <a href="#">學生議會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="council-intro.html">學生議會組織運作總覽</a></li>
+                <li><a href="council-rules.html">學生議會議事規範總覽</a></li>
+                <li><a href="council-budget.html">學生會預決算審查總覽</a></li>
+                <li><a href="council-docs.html">學生議會議事公開專區</a></li>
+                <li>
+                  <a href="council-templates.html">學生會選罷與提案指南</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">評議委員會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="court-intro.html">評議會與司法救濟總覽</a></li>
+                <li>
+                  <a href="court-interpretations.html">評議會解釋與審理總覽</a>
+                </li>
+                <li><a href="court-docs.html">評議會議事公開專區</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">資訊專區 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="activities.html">活動資訊</a></li>
+                <li><a href="clubs.html">社團介紹</a></li>
+                <li><a href="other-info.html">其他資訊</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- 主要內容區 -->
+      <main class="council-page">
+        <div class="council-container">
+          <!-- 【區塊 1：專欄標題與頁面錨點】 -->
+          <div class="council-header">
+            <h2>學生議會議事規範總覽</h2>
+            <p class="council-subtitle">
+              介紹三級法規體系、議事運作流程與請假辦法規範
+            </p>
+
+            <!-- 快速導覽錨點按鈕 (Anchor Pills) -->
+            <div class="page-anchors">
+              <a href="#section-pyramid" class="anchor-pill"
+                ><i class="fa-solid fa-layer-group"></i> 法規金字塔</a
+              >
+              <a href="#section-rules" class="anchor-pill"
+                ><i class="fa-solid fa-gavel"></i> 議事規則總覽</a
+              >
+              <a href="#section-leave-rules" class="anchor-pill"
+                ><i class="fa-solid fa-user-clock"></i> 請假辦法總覽</a
+              >
+            </div>
+            <hr class="header-divider" />
+          </div>
+
+          <!-- 【區塊 2：法規金字塔 (階層式卡片)】 -->
+          <section id="section-pyramid" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-mountain"></i>
+              法治運作之根本：嚴謹的三級法規體系
+            </h3>
+            <p class="section-lead">
+              一個成熟的學生自治體系，必須建立在嚴謹且明確的法治基礎之上。雄中學生自治法劃分為三級位階，位階高低相從，較低規範不得抵觸較高規範，確保體系之一貫性。
+            </p>
+
+            <div class="pyramid-container">
+              <!-- 頂層：章程 -->
+              <div class="pyramid-level level-top">
+                <div class="level-badge">
+                  <i class="fa-solid fa-crown"></i> 最高位階 ｜ 章程
+                </div>
+                <h4 class="level-title">
+                  《高雄市立高雄高級中學學生聯合自治會組織章程》
+                </h4>
+                <p class="level-desc">
+                  自治會之根本大法（相當於校園憲法）。規範學生自治組織之基本架構、三權分立原則、學生基本權利義務與最高機關職權。
+                </p>
+              </div>
+
+              <!-- 中層：自治條例 -->
+              <div class="pyramid-level level-mid">
+                <div class="level-badge">
+                  <i class="fa-solid fa-scale-balanced"></i> 次高位階 ｜
+                  自治條例
+                </div>
+                <h4 class="level-title">實體職權與運作條例 (共 10 項)</h4>
+                <p class="level-desc">
+                  針對各自治機關之具體職權、選舉運作、財政審查、議事程序及評議審理等實體事項作明文規範。
+                </p>
+                <div class="statute-tags">
+                  <span>行政中心組織條例</span>
+                  <span>預算決算自治條例</span>
+                  <span>選舉罷免自治條例</span>
+                  <span>政黨組織自治條例</span>
+                  <span>校務會議代表自治條例</span>
+                  <span>學生議會組織自治條例</span>
+                  <span>學生議會議事規則</span>
+                  <span>評議委員會組織自治條例</span>
+                  <span>評議審理自治條例</span>
+                  <span>行政中心活動自治條例</span>
+                </div>
+              </div>
+
+              <!-- 底層：自治規則 -->
+              <div class="pyramid-level level-bottom">
+                <div class="level-badge">
+                  <i class="fa-solid fa-scroll"></i> 最低位階 ｜ 自治規則
+                </div>
+                <h4 class="level-title">程序性與執行性細則</h4>
+                <p class="level-desc">
+                  由自治機關依自治條例授權訂定之程序性或執行性細則，用以規範內部實務運作流程。
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【區塊 3：《學生議會議事規則》完整八大條文排版】 -->
+          <section id="section-rules" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-gavel"></i>
+              《學生議會議事規則》核心章節與程序規範
+            </h3>
+
+            <div class="doc-card">
+              <!-- 一、 提案流程 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">一、 提案流程</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>提案管道與時限：</strong>
+                    <ul>
+                      <li>
+                        <strong>議員提案：</strong>需 2 人以上附署（或 3
+                        人以上共同提出，免附署），開會 5 日前提出。
+                      </li>
+                      <li>
+                        <strong>行政中心 / 評議會 / 政黨提案：</strong
+                        >經內部會議通過或特定人數簽署，開會 5 日前提出。
+                      </li>
+                      <li>
+                        <strong>臨時提案：</strong>限急迫事項，需 4
+                        人以上附署/附議，經出席議員過半數同意後始得列入討論。
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>讀會審查程序：</strong>
+                    <ul>
+                      <li>
+                        <strong>二讀制：</strong
+                        >章程案、自治法規案、預算案強制經二讀程序（逐條/分章討論表決）。
+                      </li>
+                      <li>
+                        <strong>一讀制：</strong
+                        >一般議案一讀後交付委員會，但經出席議員 2/3
+                        以上同意可改經二讀程序。
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>提案撤回：</strong
+                    >宣付討論前需附署人同意；宣付討論後需在場全體無異議。經修正之提案不得撤回。
+                  </li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <!-- 二、 報告流程 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">二、 報告流程</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>定期報告：</strong
+                    >大會開會時，會長需提施政方針與執行情形書面報告，各部門首長提業務書面報告，並均需列席口頭報告與備詢。
+                  </li>
+                  <li>
+                    <strong>專案報告：</strong
+                    >發生重大會務或議會認為必要時，會長及主管首長應到會提出報告並接受質詢。
+                  </li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <!-- 三、 質詢流程 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">三、 質詢流程</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>質詢類型與時間：</strong>
+                    <ul>
+                      <li>
+                        <strong>會務總質詢：</strong
+                        >針對政策性重大問題（向會長及首長提出）。採口頭一問一答，每人含答覆限時
+                        6 分鐘。
+                      </li>
+                      <li>
+                        <strong>業務質詢：</strong>針對部門業務。委員會議員限時
+                        5 分鐘；非該委員會議員限時 4 分鐘。
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>質詢與答覆規範：</strong>
+                    <ul>
+                      <li>
+                        行政中心應即時口頭答覆（時間不足或經同意者，得於 5
+                        日內書面答覆）。
+                      </li>
+                      <li>
+                        <strong>禁止事項：</strong
+                        >被質詢者不得反質詢、不得任意搶答、不得超出範圍，除公務秘密外不得拒絕答覆。
+                      </li>
+                      <li>質詢事項不得直接作為討論議題。</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <!-- 四、 表決流程 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">四、 表決流程</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>表決方式：</strong>預設以表決器為主，必要時經同意或
+                    4 人以上附議，得採舉手、投票或唱名表決。
+                  </li>
+                  <li>
+                    <strong>通過門檻：</strong>
+                    <ul>
+                      <li>
+                        <strong>一般議案：</strong
+                        >出席過半數同意，或主席徵詢全體「無異議認可」。
+                      </li>
+                      <li>
+                        <strong>歷屆餘額運用：</strong>須經出席議員 2/3
+                        以上同意。
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>修正案表決順序：</strong>第二修正案 → 第一修正案 →
+                    原議案（先修正後原案）。
+                  </li>
+                  <li>
+                    <strong>再表決機制：</strong
+                    >對表決結果有疑問時得提出權宜問題，經主席認可或主席主動請求後得「再表決」（以一次為限）。
+                  </li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <!-- 五、 覆議流程 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">五、 覆議流程</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>適用條件：</strong
+                    >行政中心對議會決議案有異議時送請覆議（章程/法規案可先送法規委員會審查）。
+                  </li>
+                  <li>
+                    <strong>表決方式：</strong
+                    >大會進行大體討論後，採無記名投票表決。
+                  </li>
+                  <li>
+                    <strong>翻轉門檻：</strong>
+                    <ul>
+                      <li>
+                        <strong>維持原決議：</strong>需出席議員 2/3 以上同意。
+                      </li>
+                      <li>
+                        <strong>不維持原決議：</strong>同意票未達
+                        2/3（可就原案重新討論，但不得做與覆議前相同之決議）。
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <!-- 六、 黨團協商 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">六、 黨團協商</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>啟動與主持：</strong
+                    >黨團、政團、議長或主席認為有必要時提出；議案交協商時由提案黨團召集（各黨團派
+                    2 人參加）。由議長或主持代表主持。
+                  </li>
+                  <li>
+                    <strong>協商時限：</strong>自交付協商起逾 3
+                    星期無法達成共識者，直接移交下次大會處理。
+                  </li>
+                  <li>
+                    <strong>結論效力：</strong>協商結論在大會宣讀後，若有 8
+                    人以上連署/附議得提出異議並由大會表決；無異議或表決通過後不得再提異議。
+                  </li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <!-- 七、 會場秩序與懲戒 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">七、 會場秩序與懲戒</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>違規行為：</strong
+                    >喧嘩、離題發言、個人攻萁侮辱、反質詢、搶答、無禮辱罵等妨礙秩序行為。
+                  </li>
+                  <li>
+                    <strong>主席處置權：</strong
+                    >警告、制止、禁止當日發言、令其退出議場；情節重大者移付懲戒（紀律委員會）。
+                  </li>
+                  <li>
+                    <strong>救濟機制：</strong
+                    >出席議員若對主席之制止/處分有異議，經 4
+                    人以上附議應即提付表決，需出席過半數同意始能翻轉主席之裁定。
+                  </li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <!-- 八、 公布與生效實施 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">八、 公布與生效實施</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>本規則之施行：</strong>本規則自發布日起正式施行。
+                  </li>
+                  <li>
+                    <strong>議決事項之公布：</strong>
+                    <ul>
+                      <li>
+                        經議會三讀/二讀表決通過，或覆議程序維持原決議之議案，由議會送交行政中心/會長公告發布。
+                      </li>
+                      <li>
+                        未特別規定施行日期之議案，原則上自發布日或指定之日期起生效。
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>補充法源：</strong
+                    >本規則未規定之議事程序，依內政部《會議規範》及《組織自治條例》規定辦理。
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【區塊 4：新增《學生議會請假辦法》五大條文排版】 -->
+          <section id="section-leave-rules" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-user-clock"></i>
+              《學生議會請假辦法》核心規範與請假流程
+            </h3>
+
+            <div class="doc-card">
+              <!-- 一、 法源與適用範圍 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">一、 法源與適用範圍</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>法源依據：</strong>依據《議事規則》第 6 條訂定。
+                  </li>
+                  <li>
+                    <strong>適用會議：</strong>適用於議會舉辦之常會與臨時會。
+                  </li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <!-- 二、 假別分類 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">二、 假別分類</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>請假類別：</strong>共分為 7
+                    種（病假、事假、公假、喪假、產假、婚假、生理假）。
+                  </li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <!-- 三、 請假與補辦程序 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">三、 請假與補辦程序</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>申請時機與對象：</strong
+                    >應於會議開始前，以口頭或書面方式向秘書長提出。
+                  </li>
+                  <li>
+                    <strong>證明文件：</strong>秘書長得要求提供相關證明文件。
+                  </li>
+                  <li>
+                    <strong>緊急補辦機制：</strong
+                    >遇急病或緊急事故，可委託他人事前報備，經秘書長核准後，須於事後
+                    5 日內補辦手續。
+                  </li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <!-- 四、 缺席認定與違規懲戒 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">四、 缺席認定與違規懲戒</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>缺席認定：</strong
+                    >未請假、未獲核准或請假有虛偽不實者，一律以缺席論。
+                  </li>
+                  <li>
+                    <strong>事假超標懲戒：</strong>任期內事假累計達 6
+                    次以上者，秘書長得交付紀律委員會審議。
+                  </li>
+                  <li>
+                    <strong>排除條款（不納入計算 / 不適用）：</strong>
+                    <ul>
+                      <li>
+                        因個人或家庭重大變故請事假，經紀律委員會審議通過者，得不計入次數。
+                      </li>
+                      <li>三年級（高三）議員一律不適用此懲戒條款。</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <hr class="doc-divider" />
+
+              <!-- 五、 執行秘書請假規定 -->
+              <div class="doc-block">
+                <h4 class="doc-subtitle">五、 執行秘書請假規定</h4>
+                <ul class="doc-list">
+                  <li>
+                    <strong>假別適用：</strong>執行秘書適用上述 7 種假別。
+                  </li>
+                  <li>
+                    <strong>紀錄規範：</strong>執行秘書之請假不列入會議紀錄。
+                  </li>
+                </ul>
+                <p>
+                  附註:執行秘書是負責在議會運作中處理行政雜務、議事紀錄與協助幕後運作的事務人員
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 💡 法規來源引導與雙 Notion 按鈕 -->
+          <div class="statute-link-wrapper">
+            <p class="statute-hint">
+              <i class="fa-solid fa-circle-info" style="color: #0284c7"></i>
+              想查閱完整條文與更多細節？本頁引述之法規可至以下專區查看：
+            </p>
+            <div class="statute-btn-group">
+              <a
+                href="https://kssasite.notion.site/223cd7477baf8067807ef2af17043f3e"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="statute-btn"
+              >
+                <i class="fa-solid fa-book-bookmark"></i>
+                查閱《學生議會議事規則》全文
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  style="font-size: 12px; margin-left: 2px"
+                ></i>
+              </a>
+              <a
+                href="https://kssasite.notion.site/21acd7477baf8056820af65ed55d2026"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="statute-btn statute-btn-secondary"
+              >
+                <i class="fa-solid fa-user-clock"></i>
+                查閱《學生議會請假辦法》全文
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  style="font-size: 12px; margin-left: 2px"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- 全站 Footer -->
+      <footer class="site-footer">
+        <div class="footer-container">
+          <!-- 左側：單位與地址 -->
+          <div class="footer-left">
+            <p class="footer-brand">高雄市立高雄高級中學學生聯合自治會</p>
+            <p class="footer-sub">807302 高雄市三民區建國三路 50 號</p>
+          </div>
+
+          <!-- 右側：信箱與更新資訊 -->
+          <div class="footer-right">
+            <p>
+              學生議會Ig:
+              <a
+                href="https://www.instagram.com/kssp_113th?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                >kssp_113th
+              </a>
+            </p>
+            <p>聯絡信箱：kssa1922@gmail.com</p>
+            <p>
+              最後更新：<span id="site-last-updated">2026/08/05</span> ｜
+              訪客計數：<span id="visitor-count">12,345</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 最底版權宣告 -->
+        <div class="footer-copyright">
+          <p>© 2026 KSHS SA. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 💡 專屬 CSS -->
+    <style>
+      /* 全寬文件卡片容器 */
+      .doc-card {
+        padding: 8px 0;
+        margin-top: 12px;
+      }
+
+      /* 內部子區塊與分隔線 */
+      .doc-block {
+        margin-bottom: 20px;
+      }
+      .doc-block:last-child {
+        margin-bottom: 0;
+      }
+      .doc-divider {
+        border: 0;
+        border-top: 1px dashed #cbd5e1;
+        margin: 20px 0;
+      }
+
+      /* 子標題 */
+      .doc-subtitle {
+        font-size: 17px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+      }
+
+      /* 多階層圓點清單 (Ul/Li) */
+      .doc-list,
+      .doc-list ul {
+        list-style: none;
+        padding-left: 20px;
+        margin: 0;
+      }
+
+      /* 第一層項目 (空心圓點 ◦) */
+      .doc-list > li {
+        position: relative;
+        margin-bottom: 10px;
+        color: #334155;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+      .doc-list > li::before {
+        content: "◦";
+        position: absolute;
+        left: -18px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #475569;
+      }
+
+      /* 第二層項目 (嵌套縮排 ◦) */
+      .doc-list ul {
+        margin-top: 6px;
+        padding-left: 22px;
+      }
+      .doc-list ul > li {
+        position: relative;
+        margin-bottom: 6px;
+        color: #475569;
+        font-size: 14.5px;
+        line-height: 1.6;
+      }
+      .doc-list ul > li::before {
+        content: "◦";
+        position: absolute;
+        left: -18px;
+        font-size: 15px;
+        color: #64748b;
+      }
+
+      /* CTA 區塊 */
+      .database-cta-box {
+        margin-top: 32px;
+        padding: 24px;
+        background-color: #f8fafc;
+        border: 1px dashed #cbd5e1;
+        border-radius: 12px;
+        text-align: center;
+      }
+      .cta-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 8px;
+      }
+      .cta-desc {
+        color: #475569;
+        font-size: 14px;
+        margin-bottom: 16px;
+        line-height: 1.6;
+      }
+      .btn-primary-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: #0284c7;
+        color: #ffffff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+      }
+      .btn-primary-action:hover {
+        background-color: #0369a1;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
+      }
+      /* 💡 法規來源連結與雙按鈕群組樣式 */
+      .statute-link-wrapper {
+        margin-top: 40px;
+        padding: 28px 24px;
+        background-color: #f8fafc;
+        border: 1px dashed #cbd5e1;
+        border-radius: 16px;
+        text-align: center;
+      }
+      .statute-hint {
+        margin: 0 0 20px 0;
+        color: #0f172a;
+        font-size: 15px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .statute-btn-group {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .statute-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: #0284c7;
+        color: #ffffff;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 14.5px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+      }
+      .statute-btn:hover {
+        background-color: #0369a1;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+      }
+      /* 第二個按鈕採用沉穩的深色風格作區隔 */
+      .statute-btn.statute-btn-secondary {
+        background-color: #0f172a;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+      }
+      .statute-btn.statute-btn-secondary:hover {
+        background-color: #1e293b;
+        box-shadow: 0 6px 16px rgba(15, 23, 42, 0.35);
+      }
+    </style>
+
+    <!-- 導覽列膠囊腳本 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburgerBtn = document.querySelector(".hamburger-btn");
+        const navList = document.querySelector(".nav-list");
+        if (hamburgerBtn && navList) {
+          hamburgerBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            navList.classList.toggle("active");
+          });
+        }
+
+        const activePill = document.querySelector(".nav-active-pill");
+        const navLinks = document.querySelectorAll(".nav-list .nav-item > a");
+
+        if (!navList || !activePill) return;
+
+        function movePillTo(targetLink) {
+          if (!targetLink) return;
+          navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          targetLink.classList.add("is-pill-active");
+
+          const targetRect = targetLink.getBoundingClientRect();
+          const listRect = navList.getBoundingClientRect();
+
+          const left = targetRect.left - listRect.left;
+          const top = targetRect.top - listRect.top;
+          const width = targetRect.width;
+          const height = targetRect.height;
+
+          activePill.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+          activePill.style.width = `${width}px`;
+          activePill.style.height = `${height}px`;
+          activePill.style.opacity = "1";
+        }
+
+        const currentActiveLink = document.querySelector(
+          ".nav-list .nav-item.active > a",
+        );
+        if (currentActiveLink) {
+          setTimeout(() => movePillTo(currentActiveLink), 50);
+        }
+
+        navLinks.forEach((link) => {
+          link.addEventListener("mouseenter", () => movePillTo(link));
+        });
+
+        navList.addEventListener("mouseleave", () => {
+          if (currentActiveLink) {
+            movePillTo(currentActiveLink);
+          } else {
+            activePill.style.opacity = "0";
+            navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          const currentLink = document.querySelector(
+            ".nav-list .nav-item > a.is-pill-active",
+          );
+          if (currentLink) movePillTo(currentLink);
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 抓取最後更新時間，若無資料則預設顯示今天
+        const savedDate = localStorage.getItem("kshs_last_updated_date");
+        const lastUpdatedSpan = document.getElementById("site-last-updated");
+
+        if (lastUpdatedSpan) {
+          if (savedDate) {
+            lastUpdatedSpan.innerText = savedDate;
+          } else {
+            const today = new Date();
+            const defaultDate = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getDate()).padStart(2, "0")}`;
+            lastUpdatedSpan.innerText = defaultDate;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

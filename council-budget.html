@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>預算監督與校務參與 - 高雄市立高雄高級中學學生議會</title>
+    <script
+      src="https://kit.fontawesome.com/552437327d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 💡 檯燈深淺色切換器 -->
+    <div
+      class="lamp-wrapper"
+      id="theme-lamp-btn"
+      title="拉一下切換亮色/暗色模式"
+    >
+      <div class="lamp-wire"></div>
+      <div class="lamp-top"></div>
+      <div class="lamp-shade">
+        <div class="lamp-glow"></div>
+      </div>
+      <!-- 可拉動的燈繩 -->
+      <div class="lamp-cord-wrap">
+        <div class="lamp-cord">
+          <div class="lamp-knob"></div>
+        </div>
+      </div>
+    </div>
+    <div class="Main">
+      <!-- 頂部導覽列 -->
+      <header>
+        <nav class="Main-A">
+          <div class="nav-brand">
+            <img src="./images/logo.png" alt="Logo" class="nav-logo" />
+            <span class="nav-title">高雄中學學聯會</span>
+          </div>
+
+          <button class="hamburger-btn" type="button" aria-label="切換選單">
+            <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
+          </button>
+
+          <ul class="nav-list">
+            <div class="nav-active-pill"></div>
+
+            <li class="nav-item"><a href="index.html">首頁</a></li>
+            <li class="nav-item"><a href="calendar.html">行事曆</a></li>
+            <li class="nav-item"><a href="links.html">相關連結</a></li>
+            <li class="nav-item"><a href="feedback.html">意見反映</a></li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學聯會介紹 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="officers.html">幹部與工作介紹</a></li>
+                <li>
+                  <a href="exec-intro.html">行政中心組織活動總覽</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown active">
+              <a href="#">學生議會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="council-intro.html">學生議會組織運作總覽</a></li>
+                <li><a href="council-rules.html">學生議會議事規範總覽</a></li>
+                <li><a href="council-budget.html">學生會預決算審查總覽</a></li>
+                <li><a href="council-docs.html">學生議會議事公開專區</a></li>
+                <li>
+                  <a href="council-templates.html">學生會選罷與提案指南</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">評議委員會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="court-intro.html">評議會與司法救濟總覽</a></li>
+                <li>
+                  <a href="court-interpretations.html">評議會解釋與審理總覽</a>
+                </li>
+                <li><a href="court-docs.html">評議會議事公開專區</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">資訊專區 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="activities.html">活動資訊</a></li>
+                <li><a href="clubs.html">社團介紹</a></li>
+                <li><a href="other-info.html">其他資訊</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- 主要內容區 -->
+      <main class="council-page">
+        <div class="council-container">
+          <!-- 【區塊 1：專欄標題與頁面錨點】 -->
+          <div class="council-header">
+            <h2>學生會預決算審查總覽</h2>
+            <p class="council-subtitle">
+              解析預決算審查流程、會計年度與財務監督機制
+            </p>
+
+            <!-- 快速導覽錨點 (Anchor Pills) -->
+            <div class="page-anchors">
+              <a href="#section-principles" class="anchor-pill"
+                ><i class="fa-solid fa-book-open"></i> 立法目的與原則</a
+              >
+              <a href="#section-accounting" class="anchor-pill"
+                ><i class="fa-solid fa-calendar-days"></i> 會計年度與分類</a
+              >
+              <a href="#section-budget" class="anchor-pill"
+                ><i class="fa-solid fa-coins"></i> 預算審查流程</a
+              >
+              <a href="#section-final" class="anchor-pill"
+                ><i class="fa-solid fa-file-invoice-dollar"></i> 決算審查流程</a
+              >
+              <a href="#section-summary-table" class="anchor-pill"
+                ><i class="fa-solid fa-table-list"></i> 核心機制表</a
+              >
+            </div>
+            <hr class="header-divider" />
+          </div>
+
+          <!-- 【區塊 2：一、 立法目的與基本原則】 -->
+          <section id="section-principles" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-book-open"></i>
+              一、 立法目的與基本原則（第 1～2 條）
+            </h3>
+
+            <div class="doc-card">
+              <div class="doc-block">
+                <ul class="doc-list">
+                  <li>
+                    <strong>法源依據：</strong
+                    >本自治條例規範本會（雄中學聯會）預算之籌劃、編造、審議、成立、執行，以及決算之編造、審議與公告。
+                  </li>
+                  <li>
+                    <strong>財務原則：</strong>
+                    <ul>
+                      <li>預算旨在提供學聯會於一定期間內完成作業所需經費。</li>
+                      <li>須以財務管理為基礎，遵守「收支平衡」原則。</li>
+                      <li>必須保留一定經費，作為下期業務執行的必要資金。</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【區塊 3：二、 會計年度與預算分類】 -->
+          <section id="section-accounting" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-calendar-days"></i>
+              二、 會計年度與預算分類（第 5、7～8 條）
+            </h3>
+
+            <div class="doc-card">
+              <div class="doc-block">
+                <ul class="doc-list">
+                  <li>
+                    <strong>預算期間（會計年度）：</strong>
+                    <ul>
+                      <li>每一預算期間辦理一次。</li>
+                      <li>
+                        自每年 7 月 1 日起至次年 6 月 30
+                        日止，以當學年次為年度名稱。
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>預算架構：</strong>
+                    <ul>
+                      <li>
+                        <strong>總預算：</strong
+                        >行政中心及學生議會各自之期入（收入）與期出（支出）編列之總和。
+                      </li>
+                      <li>
+                        <strong>部門預算：</strong
+                        >各法定部門編列之預算（未依法設置之單位不得編列預算）。
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>收支與短絀補足：</strong>
+                    <ul>
+                      <li>期入分為「會費收入」及「其他收入」（第 6 條）。</li>
+                      <li>若期入與期出產生差短，以前一年度賸餘撥補之。</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【區塊 4：三、 預算審查流程（事前把關）】 -->
+          <section id="section-budget" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-coins"></i>
+              三、 預算審查流程（事前把關）
+            </h3>
+
+            <div class="doc-card">
+              <!-- 頂部說明 -->
+              <div class="doc-block" style="margin-bottom: 24px">
+                <p
+                  style="
+                    color: #334155;
+                    font-size: 15px;
+                    line-height: 1.7;
+                    margin: 0;
+                  "
+                >
+                  預算審查採用二讀制，以一年為一預算期間（7月1日至次年6月30日）。<br />
+                  <strong style="color: #0284c7"
+                    >【1. 概算擬編】 ➔ 【2. 彙整提出】 ➔ 【3. 議會審議（二讀）】
+                    ➔ 【4. 公告法定預算】</strong
+                  >
+                </p>
+              </div>
+
+              <!-- 流程細節（Gemini 風格清單） -->
+              <div class="doc-block">
+                <ul class="doc-list">
+                  <li>
+                    <strong>概算擬編與初核：</strong>
+                    <ul>
+                      <li>
+                        <strong>行政部門：</strong
+                        >各部門擬具概算，送財務部統籌。
+                      </li>
+                      <li>
+                        <strong>學生議會：</strong
+                        >秘書長擬具概算，經議長簽核後送財務部。
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <strong>彙整與提案（關鍵時限）：</strong>
+                    <ul>
+                      <li>
+                        財務部彙整編成「總預算案」，呈請會長於第一學期開學日起
+                        15 日內，提出於學生議會。
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <strong>學生議會審議（二讀程序）：</strong>
+                    <ul>
+                      <li>
+                        <strong>一讀（委員會初審）：</strong
+                        >議長將預算案交各委員會審查，委員會於 10
+                        日內完成審查報告送大會（視同完成一讀）。
+                      </li>
+                      <li>
+                        <strong>二讀（大會審議）：</strong
+                        >大會進行實質審議與表決（可進行刪減、凍結或通過）。
+                      </li>
+                      <li>
+                        <strong>退回重審註記：</strong
+                        >若預算案遭議會否決或擱置，財務部須於 10
+                        日內協調修正再送審，議會收到後 10 日內召開臨時會審查。
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <strong>送達與公告：</strong>
+                    <ul>
+                      <li>預算二讀通過成為「法定預算」。</li>
+                      <li>財務部編印成冊送會長，會長收到後 10 日內公告。</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【區塊 5：四、 決算審查流程（事後稽核）】 -->
+          <section id="section-final" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+              四、 決算審查流程（事後稽核）
+            </h3>
+
+            <div class="doc-card">
+              <!-- 頂部說明 -->
+              <div class="doc-block" style="margin-bottom: 24px">
+                <p
+                  style="
+                    color: #334155;
+                    font-size: 15px;
+                    line-height: 1.7;
+                    margin: 0;
+                  "
+                >
+                  決算用以核對實際支出與預算是否相符，並評估施政效能。<br />
+                  <strong style="color: #0284c7"
+                    >【1. 決算編造】 ➔ 【2. 彙整送審】 ➔ 【3. 委員會審核】 ➔
+                    【4. 大會審議與公告】</strong
+                  >
+                </p>
+              </div>
+
+              <!-- 流程細節（Gemini 風格清單） -->
+              <div class="doc-block">
+                <ul class="doc-list">
+                  <li>
+                    <strong>單位決算編造：</strong>
+                    <ul>
+                      <li>
+                        預算年度結束後 1
+                        個月內，各單位（行政各部、議會秘書長）編造執行結果與憑證說明，送財務部。
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <strong>總決算彙編與送審（關鍵時限）：</strong>
+                    <ul>
+                      <li>財務部長編造「總決算書」呈會長簽呈。</li>
+                      <li>
+                        會長於下一學年度開學日起 15
+                        日內，送學生議會各委員會審查。
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <strong>議會委員會審核（關鍵時限）：</strong>
+                    <ul>
+                      <li>
+                        各委員會於送達後 10
+                        日內審核完畢（可通知相關單位限期答辯或列席說明），並提報大會。
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <strong>大會審議、追討與公告（關鍵時限）：</strong>
+                    <ul>
+                      <li>議會大會對執行效能進行最終審議。</li>
+                      <li>
+                        <strong>審議大限：</strong>議會若於 10 月 15
+                        日前未完成審議，視同審議通過。
+                      </li>
+                      <li>
+                        <strong>差額追討：</strong
+                        >若決算有應賠償或不合規定之差額，由會長及財務部長執行追討。
+                      </li>
+                      <li>
+                        <strong>公告：</strong>大會通過（或視同通過）後 10
+                        日內由會長公布。
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 【區塊 6：💡 預決算核心機制一覽表】 -->
+          <section id="section-summary-table" class="council-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-table-list"></i>
+              五、 💡 預決算核心機制一覽表
+            </h3>
+
+            <div class="table-responsive-wrapper">
+              <table class="committee-table vertical-table">
+                <thead>
+                  <tr>
+                    <th style="width: 25%">比較項目</th>
+                    <th style="width: 37.5%; text-align: center">
+                      預算（事前審查）
+                    </th>
+                    <th style="width: 37.5%; text-align: center">
+                      決算（事後稽核）
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="committee-name">提請 / 彙整者</td>
+                    <td>財務部彙整 / 會長提出</td>
+                    <td>財務部彙整 / 會長提出</td>
+                  </tr>
+                  <tr>
+                    <td class="committee-name">審查單位</td>
+                    <td>議會各委員會 ➔ 大會</td>
+                    <td>議會各委員會 ➔ 大會</td>
+                  </tr>
+                  <tr>
+                    <td class="committee-name">法定提案時限</td>
+                    <td>第一學期開學日起 15 日內</td>
+                    <td>下一學年度開學日起 15 日內</td>
+                  </tr>
+                  <tr>
+                    <td class="committee-name">審查 / 公告時限</td>
+                    <td>
+                      <ul class="table-list">
+                        <li>委員會 10 日內初審完畢</li>
+                        <li>二讀通過後 10 日內公告</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul class="table-list">
+                        <li>委員會 10 日內審核完畢</li>
+                        <li>10月15日前須完成審議</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="committee-name">核心決議 / 效果</td>
+                    <td>
+                      <ul class="table-list">
+                        <li>形成「法定預算」</li>
+                        <li>未通過不得支用</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul class="table-list">
+                        <li>通過後 10 日內公告</li>
+                        <li>差額由會長/財務長追討</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+          <!-- 💡 法規來源引導與 Notion 按鈕 -->
+          <div class="statute-link-wrapper">
+            <p class="statute-hint">
+              <i class="fa-solid fa-circle-info" style="color: #0284c7"></i>
+              本頁引述之條文皆出自《預算決算自治條例》
+            </p>
+            <a
+              href="https://kssasite.notion.site/218cd7477baf80a9ab71d9f67ce7be99"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="statute-btn"
+            >
+              <i class="fa-solid fa-book-bookmark"></i>
+              查閱《預算決算自治條例》條文全文
+              <i
+                class="fa-solid fa-arrow-up-right-from-square"
+                style="font-size: 12px; margin-left: 2px"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </main>
+
+      <!-- 全站 Footer -->
+      <footer class="site-footer">
+        <div class="footer-container">
+          <!-- 左側：單位與地址 -->
+          <div class="footer-left">
+            <p class="footer-brand">高雄市立高雄高級中學學生聯合自治會</p>
+            <p class="footer-sub">807302 高雄市三民區建國三路 50 號</p>
+          </div>
+
+          <!-- 右側：信箱與更新資訊 -->
+          <div class="footer-right">
+            <p>
+              學生議會Ig:
+              <a
+                href="https://www.instagram.com/kssp_113th?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                >kssp_113th
+              </a>
+            </p>
+            <p>聯絡信箱：kssa1922@gmail.com</p>
+            <p>
+              最後更新：<span id="site-last-updated">2026/08/05</span> ｜
+              訪客計數：<span id="visitor-count">12,345</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 最底版權宣告 -->
+        <div class="footer-copyright">
+          <p>© 2026 KSHS SA. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 💡 專屬 CSS -->
+    <style>
+      /* 全寬文件卡片容器 */
+      .doc-card {
+        padding: 8px 0;
+        margin-top: 12px;
+      }
+
+      /* 內部子區塊與分隔線 */
+      .doc-block {
+        margin-bottom: 20px;
+      }
+      .doc-block:last-child {
+        margin-bottom: 0;
+      }
+
+      /* 多階層圓點清單 (Ul/Li) */
+      .doc-list,
+      .doc-list ul {
+        list-style: none;
+        padding-left: 20px;
+        margin: 0;
+      }
+
+      /* 第一層項目 (空心圓點 ◦) */
+      .doc-list > li {
+        position: relative;
+        margin-bottom: 14px;
+        color: #334155;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+      .doc-list > li::before {
+        content: "◦";
+        position: absolute;
+        left: -18px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #475569;
+      }
+
+      /* 第二層項目 (嵌套縮排 ◦) */
+      .doc-list ul {
+        margin-top: 8px;
+        padding-left: 22px;
+      }
+      .doc-list ul > li {
+        position: relative;
+        margin-bottom: 8px;
+        color: #475569;
+        font-size: 14.5px;
+        line-height: 1.6;
+      }
+      .doc-list ul > li::before {
+        content: "◦";
+        position: absolute;
+        left: -18px;
+        font-size: 15px;
+        color: #64748b;
+      }
+
+      /* 委員會與對照表 Table 樣式 */
+      .table-responsive-wrapper {
+        overflow-x: auto;
+        border-radius: 10px;
+        border: 1px solid #cbd5e1;
+        margin-top: 16px;
+      }
+      .committee-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        background: #ffffff;
+        font-size: 14.5px;
+      }
+      .committee-table th {
+        background-color: #0f172a;
+        color: #ffffff;
+        padding: 16px;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .committee-table td {
+        padding: 16px;
+        border-bottom: 1px solid #e2e8f0;
+        color: #334155;
+        vertical-align: top;
+        line-height: 1.6;
+      }
+      .committee-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .committee-table.vertical-table .committee-name {
+        font-weight: 700;
+        color: #0f172a;
+        background-color: #f8fafc;
+        border-right: 1px solid #e2e8f0;
+      }
+
+      /* 表格內的清單重置 */
+      .table-list {
+        margin: 0;
+        padding-left: 18px;
+        color: #334155;
+      }
+      .table-list li {
+        margin-bottom: 4px;
+      }
+      .table-list li:last-child {
+        margin-bottom: 0;
+      }
+      /* 💡 法規來源連結與按鈕樣式（對齊圖片設計） */
+      .statute-link-wrapper {
+        margin-top: 40px;
+        padding: 28px 24px;
+        background-color: #f8fafc;
+        border: 1px dashed #cbd5e1;
+        border-radius: 16px;
+        text-align: center;
+      }
+      .statute-hint {
+        margin: 0 0 20px 0;
+        color: #0f172a;
+        font-size: 15px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .statute-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: #0284c7;
+        color: #ffffff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+      }
+      .statute-btn:hover {
+        background-color: #0369a1;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+      }
+    </style>
+
+    <!-- 導覽列膠囊腳本 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburgerBtn = document.querySelector(".hamburger-btn");
+        const navList = document.querySelector(".nav-list");
+        if (hamburgerBtn && navList) {
+          hamburgerBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            navList.classList.toggle("active");
+          });
+        }
+
+        const activePill = document.querySelector(".nav-active-pill");
+        const navLinks = document.querySelectorAll(".nav-list .nav-item > a");
+
+        if (!navList || !activePill) return;
+
+        function movePillTo(targetLink) {
+          if (!targetLink) return;
+          navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          targetLink.classList.add("is-pill-active");
+
+          const targetRect = targetLink.getBoundingClientRect();
+          const listRect = navList.getBoundingClientRect();
+
+          const left = targetRect.left - listRect.left;
+          const top = targetRect.top - listRect.top;
+          const width = targetRect.width;
+          const height = targetRect.height;
+
+          activePill.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+          activePill.style.width = `${width}px`;
+          activePill.style.height = `${height}px`;
+          activePill.style.opacity = "1";
+        }
+
+        const currentActiveLink = document.querySelector(
+          ".nav-list .nav-item.active > a",
+        );
+        if (currentActiveLink) {
+          setTimeout(() => movePillTo(currentActiveLink), 100);
+        }
+
+        navLinks.forEach((link) => {
+          link.addEventListener("mouseenter", () => movePillTo(link));
+        });
+
+        navList.addEventListener("mouseleave", () => {
+          if (currentActiveLink) {
+            movePillTo(currentActiveLink);
+          } else {
+            activePill.style.opacity = "0";
+            navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          const currentLink = document.querySelector(
+            ".nav-list .nav-item > a.is-pill-active",
+          );
+          if (currentLink) movePillTo(currentLink);
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 抓取最後更新時間，若無資料則預設顯示今天
+        const savedDate = localStorage.getItem("kshs_last_updated_date");
+        const lastUpdatedSpan = document.getElementById("site-last-updated");
+
+        if (lastUpdatedSpan) {
+          if (savedDate) {
+            lastUpdatedSpan.innerText = savedDate;
+          } else {
+            const today = new Date();
+            const defaultDate = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getDate()).padStart(2, "0")}`;
+            lastUpdatedSpan.innerText = defaultDate;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>活動詳情 - 高雄市立高雄高級中學學聯會</title>
+    <script
+      src="https://kit.fontawesome.com/552437327d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 💡 檯燈深淺色切換器 -->
+    <div
+      class="lamp-wrapper"
+      id="theme-lamp-btn"
+      title="拉一下切換亮色/暗色模式"
+    >
+      <div class="lamp-wire"></div>
+      <div class="lamp-top"></div>
+      <div class="lamp-shade">
+        <div class="lamp-glow"></div>
+      </div>
+      <!-- 可拉動的燈繩 -->
+      <div class="lamp-cord-wrap">
+        <div class="lamp-cord">
+          <div class="lamp-knob"></div>
+        </div>
+      </div>
+    </div>
+    <div class="Main">
+      <header>
+        <nav class="Main-A">
+          <div class="nav-brand">
+            <img src="./images/logo.png" alt="Logo" class="nav-logo" />
+            <span class="nav-title">高雄中學學聯會</span>
+          </div>
+
+          <button class="hamburger-btn" type="button" aria-label="切換選單">
+            <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
+          </button>
+
+          <ul class="nav-list">
+            <div class="nav-active-pill"></div>
+
+            <li class="nav-item"><a href="index.html">首頁</a></li>
+            <li class="nav-item"><a href="calendar.html">行事曆</a></li>
+            <li class="nav-item"><a href="links.html">相關連結</a></li>
+            <li class="nav-item"><a href="feedback.html">意見反映</a></li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學聯會介紹 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="officers.html">幹部與工作介紹</a></li>
+                <li>
+                  <a href="exec-intro.html">行政中心組織活動總覽</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">學生議會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="council-intro.html">學生議會組織運作總覽</a></li>
+                <li><a href="council-rules.html">學生議會議事規範總覽</a></li>
+                <li><a href="council-budget.html">學生會預決算審查總覽</a></li>
+                <li><a href="council-docs.html">學生議會議事公開專區</a></li>
+                <li>
+                  <a href="council-templates.html">學生會選罷與提案指南</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a href="#">評議委員會 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="court-intro.html">評議會與司法救濟總覽</a></li>
+                <li>
+                  <a href="court-interpretations.html">評議會解釋與審理總覽</a>
+                </li>
+                <li><a href="court-docs.html">評議會議事公開專區</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-dropdown active">
+              <a href="#">資訊專區 ▾</a>
+              <ul class="dropdown-menu">
+                <li><a href="activities.html">活動資訊</a></li>
+                <li><a href="clubs.html">社團介紹</a></li>
+                <li><a href="other-info.html">其他資訊</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="activities-page">
+        <div class="activities-container" id="detail-container"></div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-container">
+          <!-- 左側：單位與地址 -->
+          <div class="footer-left">
+            <p class="footer-brand">高雄市立高雄高級中學學生聯合自治會</p>
+            <p class="footer-sub">807302 高雄市三民區建國三路 50 號</p>
+          </div>
+
+          <!-- 右側：信箱與更新資訊 -->
+          <div class="footer-right">
+            <p>
+              學聯會Ig:
+              <a
+                href="https://www.instagram.com/kssa___117th?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                >kssa___117th
+              </a>
+            </p>
+            <p>聯絡信箱：kssa1922@gmail.com</p>
+            <p>
+              最後更新：<span id="site-last-updated">2026/08/05</span> ｜
+              訪客計數：<span id="visitor-count">12,345</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 最底版權宣告 -->
+        <div class="footer-copyright">
+          <p>© 2026 KSHS SA. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. 抓取網址參數 ?id=xxx
+        const urlParams = new URLSearchParams(window.location.search);
+        const actId = urlParams.get("id");
+        const container = document.getElementById("detail-container");
+
+        // 2. 從資料庫讀取全部活動
+        const localData =
+          JSON.parse(localStorage.getItem("kshs_activities")) || [];
+        const act = localData.find((item) => item.id === actId);
+
+        // 如果找不到對應的文章（例如點了無效連結或文章被刪除了）
+        if (!act) {
+          container.innerHTML = `
+            <a href="activities.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> 返回活動列表</a>
+            <div style="text-align:center; padding: 60px 0;">
+              <h2 style="color:#64748b; margin-bottom:12px;">找不到此活動資訊</h2>
+              <p style="color:#94a3b8;">該活動可能已被刪除，或是網址不正確。</p>
+            </div>
+          `;
+          return;
+        }
+
+        // 3. 分類處理附件：圖片 vs PDF 檔案
+        let attachmentsHtml = "";
+        if (act.attachments && act.attachments.length > 0) {
+          const images = act.attachments.filter((att) =>
+            att.type.startsWith("image/"),
+          );
+          const pdfs = act.attachments.filter(
+            (att) => !att.type.startsWith("image/"),
+          );
+
+          // (A) 如果有圖片插圖：呈現在「活動照片/插圖畫廊」
+          if (images.length > 0) {
+            attachmentsHtml += `
+              <h3 class="detail-subtitle"><i class="fa-regular fa-images"></i> 活動插圖與現場照片</h3>
+              <div class="detail-gallery">
+                ${images
+                  .map(
+                    (img) =>
+                      `<img src="${img.data}" alt="${img.name}" class="gallery-img" />`,
+                  )
+                  .join("")}
+              </div>
+            `;
+          }
+
+          // (B) 如果有 PDF 附件：呈現為高質感下載卡片
+          if (pdfs.length > 0) {
+            attachmentsHtml += `
+              <h3 class="detail-subtitle"><i class="fa-solid fa-paperclip"></i> 活動附件與簡章下載</h3>
+              <div class="attachments-list">
+                ${pdfs
+                  .map(
+                    (file) => `
+                  <a href="${file.data}" download="${file.name}" class="attachment-card">
+                    <div class="att-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div class="att-info">
+                      <span class="att-name">${file.name}</span>
+                      <span class="att-hint">點擊即可儲存 PDF 附件檔</span>
+                    </div>
+                    <div class="att-download-btn"><i class="fa-solid fa-download"></i> 下載</div>
+                  </a>
+                `,
+                  )
+                  .join("")}
+              </div>
+            `;
+          }
+        }
+
+        // 4. 印出完整畫面
+        container.innerHTML = `
+          <a href="activities.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> 返回活動列表
+          </a>
+
+          <div class="detail-hero-image">
+            <!-- 底層模糊背景 -->
+            <img src="${act.banner}" alt="背景" class="detail-hero-bg" />
+            <!-- 前景完整不裁切海報 -->
+            <img src="${act.banner}" alt="${act.title}" class="hero-main-img" />
+          </div>
+
+          <div class="detail-header-block">
+            <span class="tag-badge">${act.tag}</span>
+            <h1 class="detail-title">${act.title}</h1>
+          </div>
+
+          <div class="detail-info-grid">
+            <div class="info-item">
+              <i class="fa-regular fa-calendar-check info-icon"></i>
+              <div>
+                <span class="info-label">活動日期</span>
+                <span class="info-value">
+                  ${
+                    act.startDate
+                      ? `${act.startDate} ${act.endDate ? "~ " + act.endDate : ""}`
+                      : act.dateCreated
+                  }
+                </span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-building-columns info-icon"></i>
+              <div>
+                <span class="info-label">主辦 / 發布單位</span>
+                <span class="info-value">${act.dept}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-content">
+            <h3 class="detail-subtitle"><i class="fa-solid fa-align-left"></i> 活動詳細說明</h3>
+            <p class="content-text">${(
+              act.content || "尚無詳細文字說明。"
+            ).replace(/\n/g, "<br>")}</p>
+
+            ${attachmentsHtml}
+          </div>
+        `;
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburgerBtn = document.querySelector(".hamburger-btn");
+        const navList = document.querySelector(".nav-list");
+        if (hamburgerBtn && navList) {
+          hamburgerBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            navList.classList.toggle("active");
+          });
+        }
+
+        const activePill = document.querySelector(".nav-active-pill");
+        const navLinks = document.querySelectorAll(".nav-list .nav-item > a");
+
+        if (!navList || !activePill) return;
+
+        function movePillTo(targetLink) {
+          if (!targetLink) return;
+
+          navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          targetLink.classList.add("is-pill-active");
+
+          const targetRect = targetLink.getBoundingClientRect();
+          const listRect = navList.getBoundingClientRect();
+
+          const left = targetRect.left - listRect.left;
+          const top = targetRect.top - listRect.top;
+          const width = targetRect.width;
+          const height = targetRect.height;
+
+          activePill.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+          activePill.style.width = `${width}px`;
+          activePill.style.height = `${height}px`;
+          activePill.style.opacity = "1";
+        }
+
+        const currentActiveLink = document.querySelector(
+          ".nav-list .nav-item.active > a",
+        );
+        if (currentActiveLink) {
+          setTimeout(() => movePillTo(currentActiveLink), 50);
+        }
+
+        navLinks.forEach((link) => {
+          link.addEventListener("mouseenter", () => {
+            movePillTo(link);
+          });
+        });
+
+        navList.addEventListener("mouseleave", () => {
+          if (currentActiveLink) {
+            movePillTo(currentActiveLink);
+          } else {
+            activePill.style.opacity = "0";
+            navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          const currentLink = document.querySelector(
+            ".nav-list .nav-item > a.is-pill-active",
+          );
+          if (currentLink) movePillTo(currentLink);
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 抓取最後更新時間，若無資料則預設顯示今天
+        const savedDate = localStorage.getItem("kshs_last_updated_date");
+        const lastUpdatedSpan = document.getElementById("site-last-updated");
+
+        if (lastUpdatedSpan) {
+          if (savedDate) {
+            lastUpdatedSpan.innerText = savedDate;
+          } else {
+            const today = new Date();
+            const defaultDate = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getDate()).padStart(2, "0")}`;
+            lastUpdatedSpan.innerText = defaultDate;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
