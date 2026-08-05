@@ -149,15 +149,28 @@
   }
 }
 
+/* =========================================================
+   📱 RWD 手機版導覽列與漢堡選單 (768px 以下)
+   ========================================================= */
 @media (max-width: 768px) {
   .Main-A {
     position: relative;
+    z-index: 1000;
   }
 
+  /* 1. 手機版強制隱藏膠囊，改用標準高亮 */
+  .nav-active-pill {
+    display: none !important;
+  }
+
+  /* 2. 顯示漢堡按鈕並提升權重 */
   .hamburger-btn {
-    display: block;
+    display: block !important;
+    z-index: 1001;
+    cursor: pointer;
   }
 
+  /* 3. 垂直選單面板 */
   .nav-list {
     display: none;
     flex-direction: column;
@@ -166,17 +179,28 @@
     left: 0;
     width: 100%;
     margin: 0 !important;
-    padding: 20px 0;
+    padding: 16px 0;
     background-color: #1e293b;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     z-index: 999;
     text-align: center;
+    gap: 10px;
   }
 
+  /* 按下漢堡按鈕時展開選單 */
   .nav-list.active {
-    display: flex;
+    display: flex !important;
   }
 
+  /* 手機版文字選中背景底色 */
+  .nav-list .nav-item.active > a,
+  .nav-list .nav-item > a:hover {
+    background-color: #334155;
+    color: #ffffff !important;
+    border-radius: 6px;
+  }
+
+  /* 下拉選單直向排列 */
   .dropdown-menu {
     position: static !important;
     box-shadow: none;
