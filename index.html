@@ -1,15 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-TW">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script
       src="https://kit.fontawesome.com/552437327d.js"
       crossorigin="anonymous"
     ></script>
 
-    <!-- 💡 把外部的 style.css 匯入進來 -->
+    <!-- 💡 匯入主樣式檔 -->
     <link rel="stylesheet" href="style.css" />
+
     <!-- 1. 搜尋結果出現的標題 -->
     <title>高雄中學學聯會</title>
 
@@ -19,12 +21,11 @@
       content="高雄中學學聯會（KSSA）官方網站。提供校園最新活動資訊、學生議會會議紀錄、法規彙編、學生權益意見反映與社團指南。"
     />
 
-    <!-- 3. 關鍵字（建議寫入校名與學聯會簡稱） -->
+    <!-- 3. 關鍵字 -->
     <meta
       name="keywords"
       content="雄中, 高雄中學, 學聯會, 學生會, KSSA, 雄中學生自治"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="Main">
@@ -35,10 +36,12 @@
             <span class="nav-title">高雄中學學聯會</span>
           </div>
 
+          <!-- 🍔 手機版漢堡按鈕 -->
           <button class="hamburger-btn" type="button" aria-label="切換選單">
             <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
           </button>
 
+          <!-- 導覽連結列表 -->
           <ul class="nav-list">
             <div class="nav-active-pill"></div>
 
@@ -91,7 +94,7 @@
             </li>
           </ul>
 
-          <!-- 🔒 管理員狀態與登出按鈕 (預設隱藏，登入後自動浮現) -->
+          <!-- 🔒 管理員狀態與登出按鈕 -->
           <button
             id="admin-logout-btn"
             class="admin-status-badge"
@@ -101,6 +104,7 @@
           </button>
         </nav>
       </header>
+
       <section class="Main-B">
         <h1 style="font-size: 50px; font-weight: bold">
           高雄中學學聯會&nbsp;KSSA
@@ -108,9 +112,10 @@
         <br />
         <h2 style="font-size: 40px; font-weight: bold">實事求是，精益求精</h2>
       </section>
+
       <section class="Main-C">
         <br />
-        <!-- 💡 1. 頂部咖啡色 Banner 區塊 -->
+        <!-- 💡 1. 頂部 Banner 區塊 -->
         <div
           class="org-banner"
           style="
@@ -134,12 +139,11 @@
           </h2>
         </div>
 
-        <!-- 💡 2. 下方限制寬度的內容區域 (按鈕與圖片) -->
+        <!-- 💡 2. 按鈕與圖片展示區 -->
         <section
           class="org-content-container"
           style="max-width: 900px; margin: 0 auto 40px auto; padding: 0 16px"
         >
-          <!-- Tab 切換按鈕 -->
           <div
             class="org-tab-group"
             style="
@@ -152,29 +156,27 @@
             <button
               type="button"
               class="org-tab-btn active"
-              onclick="switchOrgTab('dept')"
+              onclick="switchOrgTab(event, 'dept')"
             >
               行政中心
             </button>
             <button
               type="button"
               class="org-tab-btn"
-              onclick="switchOrgTab('parliament')"
+              onclick="switchOrgTab(event, 'parliament')"
             >
               學生議會
             </button>
             <button
               type="button"
               class="org-tab-btn"
-              onclick="switchOrgTab('court')"
+              onclick="switchOrgTab(event, 'court')"
             >
               評議委員會
             </button>
           </div>
 
-          <!-- 白底圖片卡片 (置中展示) -->
           <div class="org-chart-card">
-            <!-- 行政中心 -->
             <div id="tab-dept" class="org-chart-content active">
               <h3 class="chart-title">行政中心組織架構</h3>
               <img
@@ -184,7 +186,6 @@
               />
             </div>
 
-            <!-- 學生議會 -->
             <div id="tab-parliament" class="org-chart-content">
               <h3 class="chart-title">學生議會組織架構</h3>
               <img
@@ -194,7 +195,6 @@
               />
             </div>
 
-            <!-- 評議委員會 -->
             <div id="tab-court" class="org-chart-content">
               <h3 class="chart-title">評議委員會組織架構</h3>
               <img
@@ -205,12 +205,13 @@
             </div>
           </div>
         </section>
-        <!-- 在 Main-C 圖片下方新增部門介紹區 -->
+
+        <!-- 部門介紹區 -->
         <div class="dept-container">
           <p>
             高雄中學學生聯合會（簡稱雄中學聯會）是雄中全校學生的最高自治代表組織，秉持「自由、民主、自主」的精神，致力於深化校園民主、推動學生權益，並為全校同學打造豐富且多元的校園生活。
           </p>
-          <!-- 第一區：行政部門 -->
+
           <article class="dept-block">
             <div class="dept-title">
               <h3>行政部門</h3>
@@ -225,7 +226,6 @@
             </div>
           </article>
 
-          <!-- 第二區：學生議會 -->
           <article class="dept-block">
             <div class="dept-title">
               <h3>學生議會</h3>
@@ -236,7 +236,7 @@
               </p>
             </div>
           </article>
-          <!-- 第三區：評議委員會 -->
+
           <article class="dept-block">
             <div class="dept-title">
               <h3>評議委員會</h3>
@@ -258,15 +258,14 @@
           </p>
         </div>
       </section>
+
       <footer class="site-footer">
         <div class="footer-container">
-          <!-- 左側：單位與地址 -->
           <div class="footer-left">
             <p class="footer-brand">高雄市立高雄高級中學學生聯合自治會</p>
             <p class="footer-sub">807302 高雄市三民區建國三路 50 號</p>
           </div>
 
-          <!-- 右側：信箱與更新資訊 -->
           <div class="footer-right">
             <p>
               學聯會Ig:
@@ -284,47 +283,29 @@
           </div>
         </div>
 
-        <!-- 最底版權宣告 -->
         <div class="footer-copyright">
           <p>© 2026 KSHS SA. All Rights Reserved.</p>
         </div>
       </footer>
     </div>
-    <script>
-      // 1. 抓取 HTML 裡的漢堡按鈕與選單
-      const hamburgerBtn = document.querySelector(".hamburger-btn");
-      const navList = document.querySelector(".nav-list");
 
-      // 2. 監聽點擊事件：當按鈕被點擊時，切換 (toggle) .active 類別
-      hamburgerBtn.addEventListener("click", () => {
-        navList.classList.toggle("active");
-      });
-    </script>
-    <!-- 引入導航區塊 JavaScript -->
-    <script src="./js/nav.js"></script>
-    <!-- 💡 四角隱藏登入感應區 (完全透明) -->
+    <!-- 💡 四角隱藏登入感應區 -->
     <div class="secret-corner secret-tl" id="corner-tl" title="觸發區1"></div>
     <div class="secret-corner secret-tr" id="corner-tr" title="觸發區2"></div>
     <div class="secret-corner secret-bl" id="corner-bl" title="觸發區3"></div>
     <div class="secret-corner secret-br" id="corner-br" title="觸發區4"></div>
 
-    <!-- 💡 高質感 Glassmorphism 毛玻璃登入 Modal -->
+    <!-- 💡 毛玻璃登入 Modal -->
     <div id="admin-login-modal" class="glass-modal-overlay">
       <div class="glass-modal-card">
-        <!-- 關閉按鈕 -->
         <button type="button" class="glass-modal-close" id="login-modal-close">
           &times;
         </button>
-
-        <!-- 標題區 -->
         <div class="glass-modal-header">
           <h2>Login</h2>
           <p>KSHS SA Admin Portal</p>
         </div>
-
-        <!-- 表單 -->
         <form id="admin-login-form" class="glass-login-form">
-          <!-- 帳號輸入框 -->
           <div class="glass-input-group">
             <i class="fa-solid fa-user input-icon"></i>
             <input
@@ -336,8 +317,6 @@
             />
             <label for="login-account">Account</label>
           </div>
-
-          <!-- 密碼輸入框 -->
           <div class="glass-input-group">
             <i class="fa-solid fa-lock input-icon"></i>
             <input
@@ -348,8 +327,6 @@
             />
             <label for="login-password">Password</label>
           </div>
-
-          <!-- 錯誤提示 -->
           <div
             id="login-error-msg"
             class="glass-error-msg"
@@ -358,46 +335,49 @@
             <i class="fa-solid fa-circle-exclamation"></i>
             帳號或密碼錯誤，請重新輸入！
           </div>
-
-          <!-- 登入提交按鈕 -->
           <button type="submit" class="btn-glass-submit">Login</button>
         </form>
       </div>
     </div>
-  </body>
-  <script>
-    function switchOrgTab(tabName) {
-      // 切換按鈕 active 樣式
-      const buttons = document.querySelectorAll(".org-tab-btn");
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      event.currentTarget.classList.add("active");
 
-      // 切換圖表顯示
-      const contents = document.querySelectorAll(".org-chart-content");
-      contents.forEach((content) => content.classList.remove("active"));
+    <!-- 💡 統一於頁尾引入 JavaScript 檔案 -->
+    <script src="./js/nav.js"></script>
+    <script src="./js/login.js"></script>
 
-      const targetContent = document.getElementById("tab-" + tabName);
-      if (targetContent) {
-        targetContent.classList.add("active");
-      }
-    }
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // 抓取最後更新時間，若無資料則預設顯示今天
-      const savedDate = localStorage.getItem("kshs_last_updated_date");
-      const lastUpdatedSpan = document.getElementById("site-last-updated");
+    <script>
+      // 架構圖 Tab 切換
+      function switchOrgTab(e, tabName) {
+        const buttons = document.querySelectorAll(".org-tab-btn");
+        buttons.forEach((btn) => btn.classList.remove("active"));
 
-      if (lastUpdatedSpan) {
-        if (savedDate) {
-          lastUpdatedSpan.innerText = savedDate;
-        } else {
-          const today = new Date();
-          const defaultDate = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getDate()).padStart(2, "0")}`;
-          lastUpdatedSpan.innerText = defaultDate;
+        if (e && e.currentTarget) {
+          e.currentTarget.classList.add("active");
+        }
+
+        const contents = document.querySelectorAll(".org-chart-content");
+        contents.forEach((content) => content.classList.remove("active"));
+
+        const targetContent = document.getElementById("tab-" + tabName);
+        if (targetContent) {
+          targetContent.classList.add("active");
         }
       }
-    });
-  </script>
-  <script src="./js/login.js"></script>
+
+      // 頁面動態最後更新時間
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedDate = localStorage.getItem("kshs_last_updated_date");
+        const lastUpdatedSpan = document.getElementById("site-last-updated");
+
+        if (lastUpdatedSpan) {
+          if (savedDate) {
+            lastUpdatedSpan.innerText = savedDate;
+          } else {
+            const today = new Date();
+            const defaultDate = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getDate()).padStart(2, "0")}`;
+            lastUpdatedSpan.innerText = defaultDate;
+          }
+        }
+      });
+    </script>
+  </body>
 </html>
