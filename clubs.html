@@ -12,24 +12,6 @@
   </head>
 
   <body>
-    <!-- 💡 檯燈深淺色切換器 -->
-    <div
-      class="lamp-wrapper"
-      id="theme-lamp-btn"
-      title="拉一下切換亮色/暗色模式"
-    >
-      <div class="lamp-wire"></div>
-      <div class="lamp-top"></div>
-      <div class="lamp-shade">
-        <div class="lamp-glow"></div>
-      </div>
-      <!-- 可拉動的燈繩 -->
-      <div class="lamp-cord-wrap">
-        <div class="lamp-cord">
-          <div class="lamp-knob"></div>
-        </div>
-      </div>
-    </div>
     <div class="Main">
       <!-- 頂部導覽列 -->
       <header>
@@ -39,60 +21,69 @@
             <span class="nav-title">高雄中學學聯會</span>
           </div>
 
+          <!-- 🍔 手機版漢堡按鈕 -->
           <button class="hamburger-btn" type="button" aria-label="切換選單">
             <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
           </button>
 
-          <ul class="nav-list">
+          <!-- 💡 修正點 1：補上 nav-wrapper 提供相對定位基準點 -->
+          <div class="nav-wrapper">
+            <!-- 💡 修正點 2：膠囊放於 nav-wrapper 內部 -->
             <div class="nav-active-pill"></div>
 
-            <li class="nav-item"><a href="index.html">首頁</a></li>
-            <li class="nav-item"><a href="calendar.html">行事曆</a></li>
-            <li class="nav-item"><a href="links.html">相關連結</a></li>
-            <li class="nav-item"><a href="feedback.html">意見反映</a></li>
+            <!-- 💡 修正點 3：將原本的 div 改為標準的 ul -->
+            <ul class="nav-list">
+              <li class="nav-item"><a href="index.html">首頁</a></li>
+              <li class="nav-item"><a href="calendar.html">行事曆</a></li>
+              <li class="nav-item"><a href="links.html">相關連結</a></li>
+              <li class="nav-item"><a href="feedback.html">意見反映</a></li>
 
-            <li class="nav-item has-dropdown">
-              <a href="#">學聯會介紹 ▾</a>
-              <ul class="dropdown-menu">
-                <li><a href="officers.html">幹部與工作介紹</a></li>
-                <li><a href="exec-intro.html">行政中心組織活動總覽</a></li>
-              </ul>
-            </li>
+              <li class="nav-item has-dropdown">
+                <a href="#">學聯會介紹 ▾</a>
+                <ul class="dropdown-menu">
+                  <li><a href="officers.html">幹部與工作介紹</a></li>
+                  <li><a href="exec-intro.html">行政中心組織活動總覽</a></li>
+                </ul>
+              </li>
 
-            <li class="nav-item has-dropdown">
-              <a href="#">學生議會 ▾</a>
-              <ul class="dropdown-menu">
-                <li><a href="council-intro.html">學生議會組織運作總覽</a></li>
-                <li><a href="council-rules.html">學生議會議事規範總覽</a></li>
-                <li><a href="council-budget.html">學生會預決算審查總覽</a></li>
-                <li><a href="council-docs.html">學生議會議事公開專區</a></li>
-                <li>
-                  <a href="council-templates.html">學生會選罷與提案指南</a>
-                </li>
-              </ul>
-            </li>
+              <li class="nav-item has-dropdown active">
+                <a href="#">學生議會 ▾</a>
+                <ul class="dropdown-menu">
+                  <li><a href="council-intro.html">學生議會組織運作總覽</a></li>
+                  <li><a href="council-rules.html">學生議會議事規範總覽</a></li>
+                  <li>
+                    <a href="council-budget.html">學生會預決算審查總覽</a>
+                  </li>
+                  <li><a href="council-docs.html">學生議會議事公開專區</a></li>
+                  <li>
+                    <a href="council-templates.html">學生會選罷與提案指南</a>
+                  </li>
+                </ul>
+              </li>
 
-            <li class="nav-item has-dropdown">
-              <a href="#">評議委員會 ▾</a>
-              <ul class="dropdown-menu">
-                <li><a href="court-intro.html">評議會與司法救濟總覽</a></li>
-                <li>
-                  <a href="court-interpretations.html">評議會解釋與審理總覽</a>
-                </li>
-                <li><a href="court-docs.html">評議會議事公開專區</a></li>
-              </ul>
-            </li>
+              <li class="nav-item has-dropdown">
+                <a href="#">評議委員會 ▾</a>
+                <ul class="dropdown-menu">
+                  <li><a href="court-intro.html">評議會與司法救濟總覽</a></li>
+                  <li>
+                    <a href="court-interpretations.html"
+                      >評議會解釋與審理總覽</a
+                    >
+                  </li>
+                  <li><a href="court-docs.html">評議會議事公開專區</a></li>
+                </ul>
+              </li>
 
-            <!-- 💡 當前分頁：資訊專區 ▾ -->
-            <li class="nav-item has-dropdown active">
-              <a href="#">資訊專區 ▾</a>
-              <ul class="dropdown-menu">
-                <li><a href="activities.html">活動資訊</a></li>
-                <li><a href="clubs.html">社團介紹</a></li>
-                <li><a href="other-info.html">其他資訊</a></li>
-              </ul>
-            </li>
-          </ul>
+              <li class="nav-item has-dropdown active">
+                <a href="#">資訊專區 ▾</a>
+                <ul class="dropdown-menu">
+                  <li><a href="activities.html">活動資訊</a></li>
+                  <li><a href="clubs.html">社團介紹</a></li>
+                  <li><a href="other-info.html">其他資訊</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </nav>
       </header>
 

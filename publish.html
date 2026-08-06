@@ -12,24 +12,6 @@
   </head>
 
   <body>
-    <!-- 💡 檯燈深淺色切換器 -->
-    <div
-      class="lamp-wrapper"
-      id="theme-lamp-btn"
-      title="拉一下切換亮色/暗色模式"
-    >
-      <div class="lamp-wire"></div>
-      <div class="lamp-top"></div>
-      <div class="lamp-shade">
-        <div class="lamp-glow"></div>
-      </div>
-      <!-- 可拉動的燈繩 -->
-      <div class="lamp-cord-wrap">
-        <div class="lamp-cord">
-          <div class="lamp-knob"></div>
-        </div>
-      </div>
-    </div>
     <div class="Main">
       <!-- 頂部導覽列 -->
       <header>
@@ -43,13 +25,15 @@
             <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
           </button>
 
-          <ul class="nav-list">
+          <div class="nav-list">
             <div class="nav-active-pill"></div>
 
             <li class="nav-item"><a href="index.html">首頁</a></li>
             <li class="nav-item"><a href="calendar.html">行事曆</a></li>
             <li class="nav-item"><a href="links.html">相關連結</a></li>
-            <li class="nav-item"><a href="feedback.html">意見反映</a></li>
+            <li class="nav-item">
+              <a href="feedback.html">意見反映</a>
+            </li>
 
             <li class="nav-item has-dropdown">
               <a href="#">學聯會介紹 ▾</a>
@@ -93,7 +77,7 @@
                 <li><a href="other-info.html">其他資訊</a></li>
               </ul>
             </li>
-          </ul>
+          </div>
         </nav>
       </header>
 

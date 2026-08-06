@@ -91,15 +91,26 @@ body {
   padding: 0;
 }
 
+/* 1. 全局大框架保持滿版重置 */
 .Main,
 main,
 header,
 nav,
 footer,
-.council-page,
-.council-container {
+.council-page {
   max-width: 100%;
   box-sizing: border-box;
+}
+
+/* 2. 將內容容器獨立出來，限制最大寬度並居中 */
+.council-container {
+  max-width: 1080px; /* 👈 關鍵：限制最大閱讀寬度（不讓它拉滿） */
+  margin: 32px auto; /* 👈 上下留白 32px，左右 auto 自動水平置中 */
+  padding: 40px 48px; /* 👈 內襯留白，讓內容不貼邊 */
+  background-color: #ffffff;
+  border-radius: 16px; /* 柔和圓角 */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* 提升質感的微陰影 */
+  box-sizing: border-box; /* 確保 padding 不會撐大總寬度 */
 }
 
 [style*="100vw"] {
@@ -353,6 +364,14 @@ footer,
   }
   .main-b-subtitle {
     font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .council-container {
+    margin: 16px auto;
+    padding: 24px 20px; /* 手機上縮小內邊距，避免擠壓內容 */
+    border-radius: 12px;
   }
 }
 
