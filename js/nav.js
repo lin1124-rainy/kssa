@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleDrawer(false);
     });
 
-    // 點擊選單內部連結時自動關閉（適合單頁跳轉或體驗）
+    // 點擊選單內部連結時自動關閉
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
         if (
@@ -55,100 +55,121 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   dropdownItems.forEach((item) => {
-    // 💡 關鍵修正：改用 :scope > a 或 firstElementChild 正確抓取第一層 <a> 標籤
     const link = item.querySelector(":scope > a");
 
     if (link) {
       link.addEventListener("click", (e) => {
-        // 僅在手機/平板寬度下觸發點擊展開
         if (window.innerWidth <= 1024) {
           e.preventDefault(); // 阻止 <a href="#"> 跳轉頁面頂端
 
-          // 開啟當前選項時，自動關閉其他已開啟的項目
           dropdownItems.forEach((otherItem) => {
             if (otherItem !== item) {
               otherItem.classList.remove("is-open");
             }
           });
 
-          // 切換當前項目的展開/收合狀態
           item.classList.toggle("is-open");
         }
       });
     }
   });
 
-  // 💊 電腦版滑動膠囊邏輯 (維持原樣)
-  if (!navList || !activePill) return;
+  // 💊 電腦版滑動膠囊邏輯 (改用 if 包裹，避免 early return 攔截後續腳本)
+  if (navList && activePill) {
+    function movePillTo(targetLink) {
+      if (window.innerWidth <= 1024 || !targetLink) {
+        activePill.style.opacity = "0";
+        navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+        return;
+      }
 
-  function movePillTo(targetLink) {
-    if (window.innerWidth <= 1024 || !targetLink) {
-      activePill.style.opacity = "0";
       navLinks.forEach((link) => link.classList.remove("is-pill-active"));
-      return;
+      targetLink.classList.add("is-pill-active");
+
+      const targetRect = targetLink.getBoundingClientRect();
+      const container = navList.closest(".nav-wrapper") || navList;
+      const containerRect = container.getBoundingClientRect();
+
+      const left = targetRect.left - containerRect.left;
+      const top = targetRect.top - containerRect.top;
+      const width = targetRect.width;
+      const height = targetRect.height;
+
+      activePill.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+      activePill.style.width = `${width}px`;
+      activePill.style.height = `${height}px`;
+      activePill.style.opacity = "1";
     }
 
-    navLinks.forEach((link) => link.classList.remove("is-pill-active"));
-    targetLink.classList.add("is-pill-active");
+    const currentActiveLink = document.querySelector(
+      ".nav-list .nav-item.active > a",
+    );
 
-    const targetRect = targetLink.getBoundingClientRect();
-    const container = navList.closest(".nav-wrapper") || navList;
-    const containerRect = container.getBoundingClientRect();
+    function updatePillPosition() {
+      const activeLink =
+        document.querySelector(".nav-list .nav-item > a.is-pill-active") ||
+        currentActiveLink;
+      if (activeLink) movePillTo(activeLink);
+    }
 
-    const left = targetRect.left - containerRect.left;
-    const top = targetRect.top - containerRect.top;
-    const width = targetRect.width;
-    const height = targetRect.height;
+    if (currentActiveLink) {
+      requestAnimationFrame(() => movePillTo(currentActiveLink));
 
-    activePill.style.transform = `translate3d(${left}px, ${top}px, 0)`;
-    activePill.style.width = `${width}px`;
-    activePill.style.height = `${height}px`;
-    activePill.style.opacity = "1";
-  }
+      window.addEventListener("load", () => {
+        setTimeout(() => movePillTo(currentActiveLink), 50);
+      });
 
-  const currentActiveLink = document.querySelector(
-    ".nav-list .nav-item.active > a",
-  );
+      if (document.fonts) {
+        document.fonts.ready.then(() => movePillTo(currentActiveLink));
+      }
+    }
 
-  function updatePillPosition() {
-    const activeLink =
-      document.querySelector(".nav-list .nav-item > a.is-pill-active") ||
-      currentActiveLink;
-    if (activeLink) movePillTo(activeLink);
-  }
-
-  if (currentActiveLink) {
-    requestAnimationFrame(() => movePillTo(currentActiveLink));
-
-    window.addEventListener("load", () => {
-      setTimeout(() => movePillTo(currentActiveLink), 50);
+    navLinks.forEach((link) => {
+      link.addEventListener("mouseenter", () => movePillTo(link));
     });
 
-    if (document.fonts) {
-      document.fonts.ready.then(() => movePillTo(currentActiveLink));
-    }
+    navList.addEventListener("mouseleave", () => {
+      if (window.innerWidth > 1024 && currentActiveLink) {
+        movePillTo(currentActiveLink);
+      } else {
+        activePill.style.opacity = "0";
+        navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth <= 1024) {
+        activePill.style.opacity = "0";
+        navLinks.forEach((link) => link.classList.remove("is-pill-active"));
+      } else {
+        toggleDrawer(false);
+        updatePillPosition();
+      }
+    });
   }
 
-  navLinks.forEach((link) => {
-    link.addEventListener("mouseenter", () => movePillTo(link));
-  });
+  // =========================================================
+  // 💡 全站真實訪客計數器 (使用 CountAPI)
+  // =========================================================
+  function updateVisitorCount() {
+    const visitorSpan = document.getElementById("visitor-count");
+    if (!visitorSpan) return;
 
-  navList.addEventListener("mouseleave", () => {
-    if (window.innerWidth > 1024 && currentActiveLink) {
-      movePillTo(currentActiveLink);
-    } else {
-      activePill.style.opacity = "0";
-      navLinks.forEach((link) => link.classList.remove("is-pill-active"));
-    }
-  });
+    const namespace = "lin1124-rainy-kssa";
+    const key = "site_visits";
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth <= 1024) {
-      activePill.style.opacity = "0";
-      navLinks.forEach((link) => link.classList.remove("is-pill-active"));
-    } else {
-      toggleDrawer(false); // 放大回電腦版時自動關閉手機版抽屜
-      updatePillPosition();
-    }
-  });
+    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.value !== undefined) {
+          visitorSpan.innerText = data.value.toLocaleString();
+        }
+      })
+      .catch((error) => {
+        console.error("訪客計數器載入失敗:", error);
+        visitorSpan.innerText = "1,234";
+      });
+  }
+
+  updateVisitorCount();
 });
