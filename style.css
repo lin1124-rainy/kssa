@@ -326,3 +326,41 @@ footer,
   transform: translateY(-1px);
   box-shadow: 0 6px 14px rgba(239, 68, 68, 0.35);
 }
+
+/* =========================================================
+   主視覺標題 RWD 字體大小控制 (防止手機爆版)
+   ========================================================= */
+.main-b-title {
+  font-size: 50px;
+  font-weight: bold;
+  color: #1e293b;
+  text-align: center;
+  word-break: break-word;
+}
+
+.main-b-subtitle {
+  font-size: 40px;
+  font-weight: bold;
+  color: #334155;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* 平板與手機版自動縮小標題字體 */
+@media (max-width: 1024px) {
+  .main-b-title {
+    font-size: 32px;
+  }
+  .main-b-subtitle {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-b-title {
+    font-size: 26px;
+  }
+  .main-b-subtitle {
+    font-size: 20px;
+  }
+}
