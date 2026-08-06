@@ -4,16 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const activePill = document.querySelector(".nav-active-pill");
   const navLinks = document.querySelectorAll(".nav-list .nav-item > a");
 
-  // =========================================================
-  // 1. 🍔 漢堡選單點擊切換邏輯 (手機/平板版)
-  // =========================================================
+  // 🍔 漢堡按鈕開關
   if (hamburgerBtn && navList) {
     hamburgerBtn.addEventListener("click", (e) => {
-      e.stopPropagation(); // 防止點擊事件冒泡
+      e.stopPropagation();
       navList.classList.toggle("active");
     });
 
-    // 點擊空白處自動收合手機選單
     document.addEventListener("click", (e) => {
       if (!hamburgerBtn.contains(e.target) && !navList.contains(e.target)) {
         navList.classList.remove("active");
@@ -21,28 +18,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =========================================================
-  // 2. 💊 滑動膠囊邏輯 (僅在電腦版/螢幕 > 768px 時運作)
-  // =========================================================
+  // 💊 電腦版滑動膠囊
   if (!navList || !activePill) return;
 
-  // 移動膠囊並只把目標文字改為深色
   function movePillTo(targetLink) {
-    // 螢幕小於等於 768px (手機版) 時，直接隱藏膠囊不計算
-    if (window.innerWidth <= 768 || !targetLink) {
+    if (window.innerWidth <= 1024 || !targetLink) {
       activePill.style.opacity = "0";
+      navLinks.forEach((link) => link.classList.remove("is-pill-active"));
       return;
     }
 
-    // 清除所有人深色狀態，只賦予當前被膠囊蓋住的項目深色
     navLinks.forEach((link) => link.classList.remove("is-pill-active"));
     targetLink.classList.add("is-pill-active");
 
     const targetRect = targetLink.getBoundingClientRect();
-    const listRect = navList.getBoundingClientRect();
+    // 以 .nav-wrapper 作為相協定位基準點
+    const wrapperRect = navList.parentElement.getBoundingClientRect();
 
-    const left = targetRect.left - listRect.left;
-    const top = targetRect.top - listRect.top;
+    const left = targetRect.left - wrapperRect.left;
+    const top = targetRect.top - wrapperRect.top;
     const width = targetRect.width;
     const height = targetRect.height;
 
@@ -52,24 +46,23 @@ document.addEventListener("DOMContentLoaded", () => {
     activePill.style.opacity = "1";
   }
 
-  // 頁面載入時預設停在帶有 .active 的選項上
+  // 初始化：定位至當前頁面
   const currentActiveLink = document.querySelector(
     ".nav-list .nav-item.active > a",
   );
   if (currentActiveLink) {
-    setTimeout(() => movePillTo(currentActiveLink), 50);
+    requestAnimationFrame(() => {
+      setTimeout(() => movePillTo(currentActiveLink), 100);
+    });
   }
 
-  // 滑鼠移入任意選項：膠囊滑過去
+  // Hover 事件監聽
   navLinks.forEach((link) => {
-    link.addEventListener("mouseenter", () => {
-      movePillTo(link);
-    });
+    link.addEventListener("mouseenter", () => movePillTo(link));
   });
 
-  // 滑鼠離開整個導覽列：膠囊滑回原本頁面選項
   navList.addEventListener("mouseleave", () => {
-    if (window.innerWidth > 768 && currentActiveLink) {
+    if (window.innerWidth > 1024 && currentActiveLink) {
       movePillTo(currentActiveLink);
     } else {
       activePill.style.opacity = "0";
@@ -77,9 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 視窗縮放動態校正
   window.addEventListener("resize", () => {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1024) {
       activePill.style.opacity = "0";
       navLinks.forEach((link) => link.classList.remove("is-pill-active"));
     } else {

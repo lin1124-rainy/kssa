@@ -23,8 +23,8 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background-color: #ffffff; /* 白底襯底 */
-  padding: 2px; /* 襯底寬度 */
+  background-color: #ffffff;
+  padding: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   object-fit: cover;
 }
@@ -36,20 +36,26 @@
   white-space: nowrap;
 }
 
-/* 導覽選單列表 */
-.nav-list {
+.nav-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-left: 40px;
+}
+
+.nav-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  flex: 1;
-  margin-left: 40px;
+  width: 100%;
   gap: 8px;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* 滑動白色膠囊 */
 .nav-active-pill {
   position: absolute;
   top: 0;
@@ -69,7 +75,6 @@
   opacity: 0;
 }
 
-/* 第一層選單連結 */
 .nav-list .nav-item > a {
   position: relative;
   z-index: 2;
@@ -87,14 +92,16 @@
   color: #0f172a !important;
 }
 
-/* 下拉選單 */
 .nav-item.has-dropdown {
   position: relative;
 }
 
-.nav-item.has-dropdown:hover .dropdown-menu {
-  display: flex;
-  flex-direction: column;
+/* 桌面版 Hover 展開下拉選單 */
+@media (min-width: 1025px) {
+  .nav-item.has-dropdown:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .dropdown-menu {
@@ -126,7 +133,6 @@
   color: #ffffff;
 }
 
-/* 漢堡選單按鈕 */
 .hamburger-btn {
   display: none;
   background: none;
@@ -137,77 +143,81 @@
   padding: 4px 8px;
 }
 
-/* RWD 選單縮放 */
-@media (max-width: 1024px) {
-  .nav-list {
-    gap: 10px;
-    font-size: 14px;
-  }
-
-  .nav-title {
-    font-size: 16px;
-  }
-}
-
 /* =========================================================
-   📱 RWD 手機版導覽列與漢堡選單 (768px 以下)
+   📱 RWD 手機與平板響應式選單 (1024px 以下切換斷點)
    ========================================================= */
-@media (max-width: 768px) {
-  .Main-A {
-    position: relative;
-    z-index: 1000;
-  }
-
-  /* 1. 手機版強制隱藏膠囊，改用標準高亮 */
+@media (max-width: 1024px) {
   .nav-active-pill {
     display: none !important;
   }
 
-  /* 2. 顯示漢堡按鈕並提升權重 */
   .hamburger-btn {
     display: block !important;
-    z-index: 1001;
-    cursor: pointer;
+    position: relative;
+    z-index: 100001;
   }
 
-  /* 3. 垂直選單面板 */
+  .hamburger-btn i {
+    pointer-events: none;
+  }
+
+  .nav-wrapper {
+    margin-left: 0;
+  }
+
+  /* 垂直選單面板：改用 fixed 穿透所有父層容器 */
   .nav-list {
     display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 64px;
-    left: 0;
-    width: 100%;
+    flex-direction: column !important;
+    position: fixed !important;
+    top: 64px !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - 64px) !important;
     margin: 0 !important;
-    padding: 16px 0;
-    background-color: #1e293b;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    z-index: 999;
+    padding: 24px 0 !important;
+    background-color: #1e293b !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    z-index: 100000 !important;
     text-align: center;
-    gap: 10px;
+    gap: 12px !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
   }
 
-  /* 按下漢堡按鈕時展開選單 */
   .nav-list.active {
     display: flex !important;
   }
 
-  /* 手機版文字選中背景底色 */
-  .nav-list .nav-item.active > a,
-  .nav-list .nav-item > a:hover {
-    background-color: #334155;
-    color: #ffffff !important;
-    border-radius: 6px;
+  .nav-list .nav-item {
+    width: 100%;
   }
 
-  /* 下拉選單直向排列 */
+  .nav-list .nav-item > a {
+    display: block;
+    padding: 12px 0;
+    width: 100%;
+  }
+
+  /* 💡 核心修復：在手機版點擊或點選時，子選單能順利展開並內縮顯示 */
+  .nav-item.has-dropdown:hover .dropdown-menu,
+  .nav-item.has-dropdown:focus-within .dropdown-menu {
+    display: flex !important;
+    flex-direction: column;
+  }
+
   .dropdown-menu {
     position: static !important;
-    box-shadow: none;
-    background-color: #0f172a;
-    width: 100%;
-    padding: 10px 0;
-    margin-top: 8px;
-    border-radius: 4px;
+    box-shadow: none !important;
+    background-color: #0f172a !important;
+    width: 100% !important;
+    padding: 8px 0 !important;
+    margin-top: 6px !important;
+  }
+
+  .dropdown-menu li a {
+    padding: 10px 0 !important;
+    font-size: 14px !important;
+    color: #94a3b8 !important;
   }
 }
