@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => {
         console.error("訪客計數器載入失敗:", error);
-        visitorSpan.innerText = "1,234";
+        visitorSpan.innerText = "累積中...";
       });
   }
 
